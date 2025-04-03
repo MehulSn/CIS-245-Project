@@ -117,6 +117,7 @@ const CategoryPage = () => {
         return stars;
     };
 
+    
     return (
         <div className="flex flex-col bg-black">
     {/* Hero Section with Video Background */}
@@ -275,12 +276,12 @@ const CategoryPage = () => {
             {/* Category Name */}
             <div className="p-4">
                 <h2 className="text-2xl font-semibold text-white">
-                    Action Games
+                    Multiplayer Games
                 </h2>
             </div>
 
             {/* Container for Items */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
+            <div id="Multiplayer" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
                 {/* Game Items */}
                 {[1, 2, 3, 4].map((item) => (
                     <div key={item} className="bg-black rounded-lg overflow-hidden shadow-lg border border-gray-800">
@@ -332,7 +333,211 @@ const CategoryPage = () => {
             </div>
 
             {/* Container for Items */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
+            <div id="Adventure" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
+                {/* Game Items */}
+                {[1, 2, 3, 4].map((item) => (
+                    <div key={item} className="bg-black rounded-lg overflow-hidden shadow-lg border border-gray-800">
+                        {/* Game Image */}
+                        <img
+                            src="/api/placeholder/400/250"
+                            alt="Game preview"
+                            className="w-full h-auto object-cover"
+                        />
+
+                        {/* Game Details Section */}
+                        <div className="p-4 bg-black text-white">
+                            <div className="flex items-center justify-between">
+                                {/* Game Title and Platform */}
+                                <div>
+                                    <h2 className="text-xl font-bold mb-1">
+                                        33 Immortals
+                                    </h2>
+                                    <div className="text-xs text-gray-400">
+                                        PC Game
+                                    </div>
+                                </div>
+
+                                {/* Price/Purchase Section */}
+                                <div className="flex items-center space-x-2">
+                                    <span className="text-lg font-semibold text-yellow-500">
+                                        ₹719
+                                    </span>
+                                    <button className="bg-yellow-500 hover:bg-yellow-600 text-black px-4 py-2 rounded-full text-sm transition-colors">
+                                        Buy
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </div>
+    {/* Third Category Section */}
+    <div className="w-full bg-black p-2">
+        <div className="bg-black w-full">
+            {/* Category Name */}
+            <div className="p-4">
+                <h2 className="text-2xl font-semibold text-white">
+                    Action Games
+                </h2>
+            </div>
+
+            {/* Container for Items */}
+            <div id="Action" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
+                {/* Game Items */}
+                {[1, 2, 3, 4].map((item) => (
+                    <div key={item} className="bg-black rounded-lg overflow-hidden shadow-lg border border-gray-800">
+                        {/* Game Image */}
+                        <img
+                            src="/api/placeholder/400/250"
+                            alt="Game preview"
+                            className="w-full h-auto object-cover"
+                        />
+
+                        {/* Game Details Section */}
+                        <div className="p-4 bg-black text-white">
+                            <div className="flex items-center justify-between">
+                                {/* Game Title and Platform */}
+                                <div>
+                                    <h2 className="text-xl font-bold mb-1">
+                                        33 Immortals
+                                    </h2>
+                                    <div className="text-xs text-gray-400">
+                                        PC Game
+                                    </div>
+                                </div>
+
+                                {/* Price/Purchase Section */}
+                                <div className="flex items-center space-x-2">
+                                    <span className="text-lg font-semibold text-yellow-500">
+                                        ₹719
+                                    </span>
+                                    <button className="bg-yellow-500 hover:bg-yellow-600 text-black px-4 py-2 rounded-full text-sm transition-colors">
+                                        Buy
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </div>
+    {/* Fourth Category Section */}
+    <div className="w-full bg-black p-2">
+        <div className="bg-black w-full">
+            {/* Category Name */}
+            <div className="p-4">
+                <h2 className="text-2xl font-semibold text-white">
+                    Fantasy Games
+                </h2>
+            </div>
+
+            {/* Container for Items */}
+            <div id="Fantasy" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
+                {/* Game Items */}
+                {[1, 2, 3, 4].map((item) => (
+                    <div key={item} className="bg-black rounded-lg overflow-hidden shadow-lg border border-gray-800">
+                        {/* Game Image */}
+                        <img
+                            src="/api/placeholder/400/250"
+                            alt="Game preview"
+                            className="w-full h-auto object-cover"
+                        />
+
+                        {/* Game Details Section */}
+                        <div className="p-4 bg-black text-white">
+                            <div className="flex items-center justify-between">
+                                {/* Game Title and Platform */}
+                                <div>
+                                    <h2 className="text-xl font-bold mb-1">
+                                        33 Immortals
+                                    </h2>
+                                    <div className="text-xs text-gray-400">
+                                        PC Game
+                                    </div>
+                                </div>
+
+                                {/* Price/Purchase Section */}
+                                <div className="flex items-center space-x-2">
+                                    <span className="text-lg font-semibold text-yellow-500">
+                                        ₹719
+                                    </span>
+                                    <button className="bg-yellow-500 hover:bg-yellow-600 text-black px-4 py-2 rounded-full text-sm transition-colors">
+                                        Buy
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </div>
+    {/* Fifth Category Section */}
+    <div className="w-full bg-black p-2">
+        <div className="bg-black w-full">
+            {/* Category Name */}
+            <div className="p-4">
+                <h2 className="text-2xl font-semibold text-white">
+                    Sports Games
+                </h2>
+            </div>
+
+            {/* Container for Items */}
+            <div id="Sports" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
+                {/* Game Items */}
+                {[1, 2, 3, 4].map((item) => (
+                    <div key={item} className="bg-black rounded-lg overflow-hidden shadow-lg border border-gray-800">
+                        {/* Game Image */}
+                        <img
+                            src="/api/placeholder/400/250"
+                            alt="Game preview"
+                            className="w-full h-auto object-cover"
+                        />
+
+                        {/* Game Details Section */}
+                        <div className="p-4 bg-black text-white">
+                            <div className="flex items-center justify-between">
+                                {/* Game Title and Platform */}
+                                <div>
+                                    <h2 className="text-xl font-bold mb-1">
+                                        33 Immortals
+                                    </h2>
+                                    <div className="text-xs text-gray-400">
+                                        PC Game
+                                    </div>
+                                </div>
+
+                                {/* Price/Purchase Section */}
+                                <div className="flex items-center space-x-2">
+                                    <span className="text-lg font-semibold text-yellow-500">
+                                        ₹719
+                                    </span>
+                                    <button className="bg-yellow-500 hover:bg-yellow-600 text-black px-4 py-2 rounded-full text-sm transition-colors">
+                                        Buy
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </div>
+    {/* Sixth Category Section */}
+    <div className="w-full bg-black p-2">
+        <div className="bg-black w-full">
+            {/* Category Name */}
+            <div className="p-4">
+                <h2 className="text-2xl font-semibold text-white">
+                    Open World Games
+                </h2>
+            </div>
+
+            {/* Container for Items */}
+            <div id="Open World" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
                 {/* Game Items */}
                 {[1, 2, 3, 4].map((item) => (
                     <div key={item} className="bg-black rounded-lg overflow-hidden shadow-lg border border-gray-800">

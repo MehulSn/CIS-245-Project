@@ -3,7 +3,7 @@
         "id": "game1",
         "title": "Grand Theft Auto V Enhanced",
         "genres": ["Multiplayer", "Action", "Open World"],
-        "pics": ["/images/image.png"],
+        "pics": ["/images/GTA1.jpg","/images/GTA2.jpg","/images/GTA3.jpg","/images/GTA4.jpg","/images/GTA5.jpg"],
         "vids": [],
         "ratings": 4.6,
         "description": "Grand Theft Auto V Enhanced: Welcome to Los Santos..."
@@ -12,7 +12,7 @@
         "id": "game2",
         "title": "EA SPORTS WRC",
         "genres": ["Racing", "Sports"],
-        "pics": [],
+        "pics": ["/images/EA1.jpg","/images/EA2.jpg","/images/EA3.jpg","/images/EA4.jpg","/images/EA5.png"],
         "vids": [],
         "ratings": null,
         "description": "Build the car of your dreams in our biggest rally game ever..."
@@ -21,7 +21,7 @@
         "id": "game3",
         "title": "EA SPORTS FC 25 Standard Edition",
         "genres": ["Sports", "Football"],
-        "pics": [],
+        "pics": ["/images/EAS1.jpg","/images/EAS2.jpg","/images/EAS3.png","/images/EAS4.png","/images/EAS5.jpg"],
         "vids": [],
         "ratings": null,
         "description": "EA SPORTS FC 25 gives you more ways to win for the club..."
@@ -30,7 +30,7 @@
         "id": "game4",
         "title": "Harry Potter: Quidditch Champions",
         "genres": ["Sports", "Fantasy"],
-        "pics": [],
+        "pics": ["/images/Potter1.png","/images/Potter2.jpg","/images/Potter3.jpg","/images/Potter4.jpg","/images/Potter5.png"],
         "vids": [],
         "ratings": null,
         "description": "Your next chapter takes flight! Immerse yourself in the enchanting world of Quidditch..."
@@ -39,7 +39,7 @@
         "id": "game5",
         "title": "DOOM Eternal Deluxe Edition",
         "genres": ["Action", "Shooter"],
-        "pics": [],
+        "pics": ["/images/DOOM1.jpg","/images/DOOM2.png","/images/DOOM3.jpg","/images/DOOM4.jpg","/images/DOOM5.jpg"],
         "vids": [],
         "ratings": null,
         "description": "Hell’s armies have invaded Earth. Become the Slayer in an epic single-player campaign..."
@@ -48,7 +48,7 @@
         "id": "game6",
         "title": "Innsmouth 22",
         "genres": ["Adventure", "Visual Novel"],
-        "pics": [],
+        "pics": ["/images/INNS.png1","/images/INNS2.png","/images/INNS3.png","/images/INNS4.png","/images/INNS5.png"],
         "vids": [],
         "ratings": null,
         "description": "In this visual novel, the main character, Lorenzo Righi, is invited to a meeting of History Scholars..."
@@ -57,7 +57,7 @@
         "id": "game7",
         "title": "Black Myth: Wukong",
         "genres": ["Action RPG", "Mythology"],
-        "pics": [],
+        "pics": ["/images/Myth1.jpg","/images/Myth2.jpg","/images/Myth3.jpg","/images/Myth4.jpg","/images/Myth5.jpg"],
         "vids": [],
         "ratings": null,
         "description": "Black Myth: Wukong is an action RPG rooted in Chinese mythology..."
@@ -66,7 +66,7 @@
         "id": "game8",
         "title": "Ghost of Tsushima DIRECTOR'S CUT",
         "genres": ["Action", "Open World", "Samurai"],
-        "pics": [],
+        "pics": ["/images/Ghost1.jpg","/images/Ghost2.jpg","/images/Ghost3.jpg","/images/Ghost4.jpg","/images/Ghost5.jpg"],
         "vids": [],
         "ratings": null,
         "description": "A storm is coming. Venture into the complete Ghost of Tsushima DIRECTOR’S CUT on PC..."
@@ -75,7 +75,7 @@
         "id": "game9",
         "title": "Nancy Drew: Mystery of the Seven Keys",
         "genres": ["Adventure", "Mystery"],
-        "pics": [],
+        "pics": ["/images/Nancy1.jpg","/images/Nancy2.jpg","/images/Nancy3.jpg","/images/Nancy4.jpg","/images/Nancy5.jpg"],
         "vids": [],
         "ratings": null,
         "description": "A thrilling blend of adventure, mystery, and history! Play as Nancy Drew to uncover the truth..."
@@ -84,7 +84,7 @@
         "id": "game10",
         "title": "Marvel’s Spider-Man 2",
         "genres": ["Action", "Superhero"],
-        "pics": [],
+        "pics": ["/images/Spider1.jpg","/images/Spider2.jpg","/images/Spider3.jpg","/images/Spider4.jpg","/images/Spider5.jpg"],
         "vids": [],
         "ratings": null,
         "description": "Spider-Sense tingling… Mask-up for more thrilling web-slinging heroics..."
@@ -93,7 +93,7 @@
         "id": "game11",
         "title": "Assassin’s Creed Shadows",
         "genres": ["Action RPG", "Open World", "Stealth"],
-        "pics": [],
+        "pics": ["/images/Shadow1.jpg","/images/Shadow2.jpg","/images/Shadow3.png","/images/Shadow4.png"],
         "vids": [],
         "ratings": null,
         "description": "ENTER FEUDAL JAPAN - Explore the captivating open world of feudal Japan..."
