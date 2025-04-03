@@ -3,34 +3,80 @@ import { Star, Clock, Users, Trophy } from "lucide-react";
 import './styles.css';
 
 const LibraryPage = () => {
-    const filterSections = [
-        { id: 'Multiplayer', label: 'Multiplayer' },
-        { id: 'Adventure', label: 'Adventure' },
-        { id: 'Action', label: 'Action' },
-        { id: 'Fantasy', label: 'Fantasy' },
-        { id: 'Sports', label: 'Sports' },
-        { id: 'Open World', label: 'Open World' }
+  
+    const games = [
+        {
+            "id": "game1",
+            "title": "Grand Theft Auto V Enhanced",
+            "genres": ["Multiplayer", "Action", "Open World"],
+            "pics": ["/images/GTA1.jpg", "/images/GTA2.jpg", "/images/GTA3.jpg", "/images/GTA4.jpg", "/images/GTA5.jpg"],
+            "price": 4000,
+            "ratings": 4.5,
+            "playtime": "20+ hours",
+            "players": "100,856 players",
+            "difficulty": "High",
+            "description": "Grand Theft Auto V Enhanced: Welcome to Los Santos..."
+        },
+        {
+            "id": "game2",
+            "title": "EA SPORTS WRC",
+            "genres": ["Racing", "Sports"],
+            "pics": ["/images/EA1.jpg", "/images/EA2.jpg", "/images/EA3.jpg", "/images/EA4.jpg", "/images/EA5.png"],
+            "price": 4000,
+            "ratings": 4.5,
+            "playtime": "20+ hours",
+            "players": "50,000 players",
+            "difficulty": "Medium",
+            "description": "Build the car of your dreams in our biggest rally game ever..."
+        },
+        {
+            "id": "game3",
+            "title": "EA SPORTS FC 25 Standard Edition",
+            "genres": ["Sports", "Football"],
+            "pics": ["/images/EAS1.jpg","/images/EAS2.jpg","/images/EAS3.png","/images/EAS4.png","/images/EAS5.jpg"],
+            "vids": [],
+            "price":4000,
+            "ratings":  4.5,
+            "playtime":20,
+            "players":100856,
+            "difficulty": "high",
+            "description": "EA SPORTS FC 25 gives you more ways to win for the club..."
+          },
+          {
+            "id": "game4",
+            "title": "Harry Potter: Quidditch Champions",
+            "genres": ["Sports", "Fantasy"],
+            "pics": ["/images/Potter1.png","/images/Potter2.jpg","/images/Potter3.jpg","/images/Potter4.jpg","/images/Potter5.png"],
+            "vids": [],
+            "price":4000,
+            "ratings":  4.5,
+            "playtime":20,
+            "players":100856,
+            "difficulty": "high",
+            "description": "Your next chapter takes flight! Immerse yourself in the enchanting world of Quidditch..."
+          },
+          {
+            "id": "game5",
+            "title": "DOOM Eternal Deluxe Edition",
+            "genres": ["Action", "Shooter"],
+            "pics": ["/images/DOOM1.jpg","/images/DOOM2.png","/images/DOOM3.jpg","/images/DOOM4.jpg","/images/DOOM5.jpg"],
+            "vids": [],
+            "price":4000,
+            "ratings":  4.5,
+            "playtime":20,
+            "players":100856,
+            "difficulty": "high",
+            "description": "Hell’s armies have invaded Earth. Become the Slayer in an epic single-player campaign..."
+          }
     ];
-
-    const gameData = {
-        title: "Cosmic Adventures",
-        description: "Embark on an epic journey through the stars in this action-packed adventure game. Explore mysterious planets, battle alien creatures, and uncover the secrets of the universe. With stunning graphics and an immersive storyline, Cosmic Adventures offers countless hours of gameplay for both casual and hardcore gamers.",
-        rating: 4.5,
-        playTime: "20+ hours",
-        players: "1-4 players",
-        difficulty: "Medium",
-        tags: ["Adventure", "Sci-Fi", "Action", "Multiplayer", "Strategy"]
-    };
-
-    const images = [
-        "/api/placeholder/640/360",
-        "/api/placeholder/640/360",
-        "/api/placeholder/640/360",
-        "/api/placeholder/640/360",
-        "/api/placeholder/640/360"
-    ];
-
+    
+    const [selectedGame, setSelectedGame] = useState(games[0]);
     const [currentImage, setCurrentImage] = useState(0);
+
+    const handleGameClick = (game) => {
+        setSelectedGame(game);
+        setCurrentImage(0);
+    };
 
     const handleImageClick = (index) => {
         setCurrentImage(index);
@@ -56,54 +102,53 @@ const LibraryPage = () => {
     return (
         <div className="container">
             <div className="left-section">
-                <h2>Filters</h2>
-                {filterSections.map((section) => (
-                    <div key={section.id} className="filter-item">{section.label}</div>
-                ))}
-                
                 <h2 className="games-title">Games</h2>
                 <div className="game-grid">
-                    {["33 Immortals", "Starfield", "Baldur's Gate 3", "Cyberpunk 2077"].map((game, index) => (
-                        <div key={index} className="game-card">
-                            <img src="/api/placeholder/200/120" alt={game} className="game-image" />
-                            <h2>{game}</h2>
-                            <p>PC Game</p>
+                    {games.map((game) => (
+                        <div key={game.id} className="game-card" onClick={() => handleGameClick(game)}>
+                            <img src={game.pics[0]} alt={game.title} className="game-image" />
+                            <h3>{game.title}</h3>
                         </div>
                     ))}
                 </div>
             </div>
 
             <div className="right-section">
-                <h1>{gameData.title}</h1>
-                <img src={images[currentImage]} alt="Game" className="main-image" />
+                <h1>{selectedGame.title}</h1>
+                <img src={selectedGame.pics[currentImage]} alt={selectedGame.title} className="main-image" />
                 <div className="thumbnail-gallery">
-                    {images.map((img, index) => (
+                    {selectedGame.pics.map((img, index) => (
                         <button key={index} onClick={() => handleImageClick(index)} className={currentImage === index ? 'active' : ''}>
                             <img src={img} alt="Thumbnail" />
                         </button>
                     ))}
                 </div>
-                
+
                 <div className="tags">
-                    {gameData.tags.map((tag, index) => (
+                    {selectedGame.genres.map((tag, index) => (
                         <div key={index} className="tag">{tag}</div>
                     ))}
                 </div>
-                
+
                 <div className="description">
                     <h2>Game Description</h2>
-                    <p>{gameData.description}</p>
+                    <p>{selectedGame.description}</p>
                 </div>
-                
+
                 <div className="ratings">
-                    {renderStars(gameData.rating)}
-                    <span>{gameData.rating}/5.0</span>
+                    {renderStars(selectedGame.ratings)}
+                    <span>{selectedGame.ratings}/5.0</span>
                 </div>
-                
+
                 <div className="details">
-                    <p><Clock size={14} /> {gameData.playTime}</p>
-                    <p><Users size={14} /> {gameData.players}</p>
-                    <p><Trophy size={14} /> Difficulty: {gameData.difficulty}</p>
+                    <p><Clock size={14} className="icons" /> {selectedGame.playtime}</p>
+                    <p><Users size={14} className="icons" /> {selectedGame.players}</p>
+                    <p><Trophy size={14} className="icons" /> Difficulty: {selectedGame.difficulty}</p>
+                </div>
+
+                <div className="buttons">
+                    <button className="launch-button">Launch Game</button>
+                    <button className="uninstall-button">Uninstall</button>
                 </div>
             </div>
         </div>

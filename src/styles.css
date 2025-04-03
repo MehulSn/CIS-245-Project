@@ -44,7 +44,7 @@
 }
 
 .game-card {
-    background: #222;
+    /* background: #222; */
     padding: 10px;
     border-radius: 5px;
 }
@@ -79,11 +79,12 @@
 .tags {
     display: flex;
     gap: 5px;
+    margin-top: 15px;
     margin-bottom: 10px;
 }
 
 .tag {
-    background: gray;
+    background: rgb(21, 76, 205);
     padding: 5px 10px;
     border-radius: 5px;
 }
@@ -103,6 +104,12 @@
     display: flex;
     flex-direction: column;
     gap: 5px;
+    
+}
+
+.icons{
+    color: yellow;
+    margin-top: 5px;
 }
 
 .star-full {
@@ -116,4 +123,43 @@
 
 .star-empty {
     color: gray;
+}
+
+.button-container {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.launch-button, .uninstall-button {
+    padding: 10px 15px;
+    margin: 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
+
+.launch-button {
+    background: linear-gradient(90deg, purple, blue);
+    color: white;
+    box-shadow: 0 4px 10px rgba(138, 43, 226, 0.6);
+}
+
+.launch-button:hover {
+    box-shadow: 0 0 15px rgba(138, 43, 226, 0.9);
+    transform: scale(1.05);
+}
+
+.uninstall-button {
+    background: linear-gradient(90deg, darkred, red);
+    color: white;
+    
+}
+
+.uninstall-button:hover {
+    transform: scale(1.05);
+    filter: brightness(1.2);
 }
