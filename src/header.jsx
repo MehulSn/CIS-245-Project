@@ -1,15 +1,20 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Search } from 'lucide-react';
 
 const Header = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const navigate = useNavigate();
+  const location = useLocation();  // Get current route
+
+  const scrollToSection = (id) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  };
 
   const headerItems = [
     { name: 'Discover', path: '/home' },
     { name: 'Library', path: '/library' },
-    { name: 'New', path: '/#new' },
+    { name: 'New', path: '/home#new', sectionId: 'new' },
     { name: 'Categories', path: '/category' },
     { name: 'News', path: '/news' }
   ];
@@ -17,6 +22,7 @@ const Header = () => {
   const handleSearch = (e) => {
     e.preventDefault();
     if (searchQuery.trim()) {
+      // navigate(/search?query=${encodeURIComponent(searchQuery)});
       navigate(`/search?query=${encodeURIComponent(searchQuery)}`);
     }
   };
@@ -35,13 +41,25 @@ const Header = () => {
       {/* Navigation Items */}
       <nav className="flex items-center space-x-6">
         {headerItems.map((item) => (
-          <Link
-            key={item.name}
-            to={item.path}
-            className="text-gray-300 transition-all duration-300 transform hover:scale-110 hover:text-white"
-          >
-            {item.name}
-          </Link>
+          item.sectionId && location.pathname === '/home' ? (
+            // If already on /home, scroll instead of navigating
+            <button
+              key={item.name}
+              onClick={() => scrollToSection(item.sectionId)}
+              className="text-gray-300 transition-all duration-300 transform hover:scale-110 hover:text-white"
+            >
+              {item.name}
+            </button>
+          ) : (
+            // Normal Link navigation
+            <Link
+              key={item.name}
+              to={item.path}
+              className="text-gray-300 transition-all duration-300 transform hover:scale-110 hover:text-white"
+            >
+              {item.name}
+            </Link>
+          )
         ))}
       </nav>
 

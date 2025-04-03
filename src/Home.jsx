@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import CarouselwithText from './CarousalwithText';
 import { Star, Clock, Users, Trophy, Tag } from "lucide-react";
+import games from './data.json';
 
 const HomePage = () => {
   const filterSections = [
-    { id: 'events', label: 'Events' },
-    { id: 'price', label: 'Price' },
+    { id: 'Multiplayer', label: 'Multiplayer' },
+    { id: 'Adventure', label: 'Adventure' },
     { id: 'genre', label: 'Genre' },
     { id: 'features', label: 'Features' },
     { id: 'types', label: 'Types' },
@@ -183,46 +184,44 @@ const HomePage = () => {
           </div>
         </div>
         <div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-4 p-2 sm:p-4">
-            {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
-              <div
-                key={item}
-                className="bg-black rounded-lg overflow-hidden shadow-lg w-full"
-              >
-                {/* Game Image */}
-                <img
-                  src="/path/to/33-immortals-image.jpg"
-                  alt="33 Immortals"
-                  className="w-full h-40 sm:h-48 md:h-56 lg:h-64 object-cover"
-                />
+          
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-4 p-2 sm:p-4">
+      {games.map((game) => (
+        <div key={game.id} className="bg-black rounded-lg overflow-hidden shadow-lg w-full">
+          {/* Game Image */}
+          <img
+            src={game.pics[0] || "/path/to/default-image.jpg"}
+            alt={game.title}
+            className="w-full h-40 sm:h-48 md:h-56 lg:h-64 object-cover"
+          />
 
-                {/* Game Details Section */}
-                <div className="p-2 sm:p-4 bg-black text-white">
-                  <div className="flex items-center justify-between">
-                    {/* Game Title and Platform */}
-                    <div className="flex-grow">
-                      <h2 className="text-base sm:text-lg md:text-xl font-bold mb-1 truncate">
-                        33 Immortals
-                      </h2>
-                      <div className="text-[10px] sm:text-xs opacity-70">
-                        PC Game
-                      </div>
-                    </div>
-
-                    {/* Price/Purchase Section */}
-                    <div className="flex flex-col sm:flex-row items-end sm:items-center space-x-0 sm:space-x-2 space-y-1 sm:space-y-0">
-                      <span className="text-sm sm:text-lg font-semibold">
-                        ₹719
-                      </span>
-                      <button className="bg-blue-600 hover:bg-blue-700 text-white px-2 py-1 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm transition-colors">
-                        Buy
-                      </button>
-                    </div>
-                  </div>
+          {/* Game Details Section */}
+          <div className="p-2 sm:p-4 bg-black text-white">
+            <div className="flex items-center justify-between">
+              {/* Game Title and Platform */}
+              <div className="flex-grow">
+                <h2 className="text-base sm:text-lg md:text-xl font-bold mb-1 truncate">
+                  {game.title}
+                </h2>
+                <div className="text-[10px] sm:text-xs opacity-70">
+                  {game.genres.join(", ")}
                 </div>
               </div>
-            ))}
+
+              {/* Price/Purchase Section */}
+              <div className="flex flex-col sm:flex-row items-end sm:items-center space-x-0 sm:space-x-2 space-y-1 sm:space-y-0">
+                <span className="text-sm sm:text-lg font-semibold">
+                  ₹{game.price}
+                </span>
+                <button className="bg-blue-600 hover:bg-blue-700 text-white px-2 py-1 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm transition-colors">
+                  Buy
+                </button>
+              </div>
+            </div>
           </div>
+        </div>
+      ))}
+    </div>
         </div>
       </div>
 
