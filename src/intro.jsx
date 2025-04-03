@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import VideoCarousel from './VideoCarousal';
-import CreateButton from './CreateButton';
 import trialVid from './assets/Harry_Potter.mp4';
+
 const products = [
   {
     id: 'assassins-creed',
@@ -44,53 +43,52 @@ const IntroPage = () => {
   };
 
   const [currentProductIndex, setCurrentProductIndex] = useState(0);
-    const [isMobileView, setIsMobileView] = useState(false);
-    const [showSidebar, setShowSidebar] = useState(true);
+  const [isMobileView, setIsMobileView] = useState(false);
+  const [showSidebar, setShowSidebar] = useState(true);
+  
+  // Handle responsive behavior
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobileView(window.innerWidth < 768);
+      setShowSidebar(window.innerWidth >= 768);
+    };
     
-    // Handle responsive behavior
-    useEffect(() => {
-      const handleResize = () => {
-        setIsMobileView(window.innerWidth < 768);
-        setShowSidebar(window.innerWidth >= 768);
-      };
-      
-      // Initial check
-      handleResize();
-      
-      // Add event listener
-      window.addEventListener('resize', handleResize);
-      
-      // Cleanup
-      return () => window.removeEventListener('resize', handleResize);
-    }, []);
-  
-    // Automatic product rotation
-    useEffect(() => {
-      const intervalId = setInterval(() => {
-        setCurrentProductIndex((prev) => (prev + 1) % products.length);
-      }, 5000);
-      return () => clearInterval(intervalId);
-    }, []);
-  
-    // Select a specific product
-    const selectProduct = (index) => {
-      setCurrentProductIndex(index);
-      // On mobile, auto-hide sidebar after selection
-      if (isMobileView) {
-        setShowSidebar(false);
-      }
-    };
-  
-    const currentProduct = products[currentProductIndex];
-  
-    // Toggle sidebar on mobile
-    const toggleSidebar = () => {
-      setShowSidebar(!showSidebar);
-    };
-  
-    const [isCreateHovered, setIsCreateHovered] = useState(false);
+    // Initial check
+    handleResize();
+    
+    // Add event listener
+    window.addEventListener('resize', handleResize);
+    
+    // Cleanup
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
-  
+  // Automatic product rotation
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentProductIndex((prev) => (prev + 1) % products.length);
+    }, 5000);
+    return () => clearInterval(intervalId);
+  }, []);
+
+  // Select a specific product
+  const selectProduct = (index) => {
+    setCurrentProductIndex(index);
+    // On mobile, auto-hide sidebar after selection
+    if (isMobileView) {
+      setShowSidebar(false);
+    }
+  };
+
+  const currentProduct = products[currentProductIndex];
+
+  // Toggle sidebar on mobile
+  const toggleSidebar = () => {
+    setShowSidebar(!showSidebar);
+  };
+
+  const [isCreateHovered, setIsCreateHovered] = useState(false);
+
   return (
     <div className="block md:grid md:grid-cols-2 w-full h-screen overflow-hidden">
       {/* Left Section - Video Background */}
@@ -128,128 +126,128 @@ const IntroPage = () => {
       </div>
       
       {/* Right Section - Carousel and Button */}
-      <div className="w-full h-1/2 md:h-full bg-green-100 p-4 md:p-8 overflow-y-auto">
-        <div className="w-full max-w-lg mx-auto mt-8">
-        <div className="w-full h-screen flex flex-col bg-gray-900 text-white overflow-hidden">
-      
-      {/* Header with Product Name and Toggle Button */}
-      <div className="flex justify-between items-center py-3 px-4 bg-gray-800">
-        <div className="text-lg md:text-2xl font-bold truncate">
-          {currentProduct.name}
-        </div>
-        {isMobileView && (
-          <button 
-            onClick={toggleSidebar}
-            className="bg-blue-600 hover:bg-blue-700 px-3 py-1 rounded text-sm font-medium"
-          >
-            {showSidebar ? 'Hide Menu' : 'Show Menu'}
-          </button>
-        )}
-      </div>
-
-      {/* Main Content Area */}
-      <div className="flex flex-1 w-full relative overflow-hidden">
-        
-        {/* Video Area (Expands to fill space) */}
-        <div className={`${showSidebar && isMobileView ? 'hidden' : 'flex-1'} bg-black flex items-center justify-center`}>
-          <video 
-            key={currentProduct.id}
-            src={currentProduct.videoUrl} 
-            className="w-full h-full object-cover"
-            autoPlay 
-            loop 
-            muted
-            playsInline
-          />
-        </div>
-
-        {/* Right Sidebar (Scrollable Thumbnails) */}
-        <div 
-          className={`
-            ${isMobileView 
-              ? showSidebar ? 'absolute inset-0 z-10' : 'hidden' 
-              : 'w-1/5 min-w-[120px] max-w-[200px]'
-            } 
-            bg-gray-800 overflow-y-auto
-          `}
-        >
-          {/* Mobile View Close Button */}
-          {isMobileView && showSidebar && (
-            <div className="sticky top-0 bg-gray-900 p-2 text-right">
-              <button 
-                onClick={toggleSidebar}
-                className="bg-gray-700 hover:bg-gray-600 px-2 py-1 rounded text-sm"
-              >
-                Close
-              </button>
+      <div className="w-full h-1/2 md:h-full bg-green-100  md: overflow-y-auto">
+        {/* Removed the max-w-lg and mx-auto constraints */}
+        <div className="w-full h-full">
+          {/* Game showcase section - Takes full width */}
+          <div className="w-full h-[calc(100%-80px)] bg-gray-900 text-white overflow-hidden">
+            {/* Header with Product Name and Toggle Button */}
+            <div className="flex justify-between items-center py-3 px-4 bg-gray-800">
+              <div className="text-lg md:text-2xl font-bold truncate">
+                {currentProduct.name}
+              </div>
+              {isMobileView && (
+                <button 
+                  onClick={toggleSidebar}
+                  className="bg-blue-600 hover:bg-blue-700 px-3 py-1 rounded text-sm font-medium"
+                >
+                  {showSidebar ? 'Hide Menu' : 'Show Menu'}
+                </button>
+              )}
             </div>
-          )}
-          
-          {/* Product Thumbnails */}
-          <div className={isMobileView ? 'grid grid-cols-2 gap-2 p-2' : ''}>
-            {products.map((product, index) => (
-              <div
-                key={product.id}
+
+            {/* Main Content Area */}
+            <div className="flex flex-1 w-full h-[calc(100%-60px)] relative overflow-hidden">
+              {/* Video Area (Expands to fill space) */}
+              <div className={`${showSidebar && isMobileView ? 'hidden' : 'flex-1'} bg-black flex items-center justify-center`}>
+                <video 
+                  key={currentProduct.id}
+                  src={currentProduct.videoUrl} 
+                  className="w-full h-full object-cover"
+                  autoPlay 
+                  loop 
+                  muted
+                  playsInline
+                />
+              </div>
+
+              {/* Right Sidebar (Scrollable Thumbnails) */}
+              <div 
                 className={`
                   ${isMobileView 
-                    ? 'p-2' 
-                    : 'p-2 border-b'
-                  }
-                  cursor-pointer
-                  ${currentProductIndex === index 
-                    ? 'bg-blue-600 border-blue-400' 
-                    : 'hover:bg-gray-700 border-gray-600'}
+                    ? showSidebar ? 'absolute inset-0 z-10' : 'hidden' 
+                    : 'w-1/5 min-w-[120px] max-w-[200px]'
+                  } 
+                  bg-gray-800 overflow-y-auto
                 `}
-                onClick={() => selectProduct(index)}
               >
-                <div className="flex flex-col items-center">
-                  <img 
-                    src={product.coverImage} 
-                    alt={product.name} 
-                    className={`
-                      ${isMobileView ? 'w-16 h-16' : 'w-12 h-12'}
-                      object-cover mb-1 rounded
-                    `}
-                  />
-                  <span className="text-xs font-semibold text-center">{product.name}</span>
+                {/* Mobile View Close Button */}
+                {isMobileView && showSidebar && (
+                  <div className="sticky top-0 bg-gray-900 p-2 text-right">
+                    <button 
+                      onClick={toggleSidebar}
+                      className="bg-gray-700 hover:bg-gray-600 px-2 py-1 rounded text-sm"
+                    >
+                      Close
+                    </button>
+                  </div>
+                )}
+                
+                {/* Product Thumbnails */}
+                <div className={isMobileView ? 'grid grid-cols-2 gap-2 p-2' : ''}>
+                  {products.map((product, index) => (
+                    <div
+                      key={product.id}
+                      className={`
+                        ${isMobileView 
+                          ? 'p-2' 
+                          : 'p-2 border-b'
+                        }
+                        cursor-pointer
+                        ${currentProductIndex === index 
+                          ? 'bg-blue-600 border-blue-400' 
+                          : 'hover:bg-gray-700 border-gray-600'}
+                      `}
+                      onClick={() => selectProduct(index)}
+                    >
+                      <div className="flex flex-col items-center">
+                        <img 
+                          src={product.coverImage} 
+                          alt={product.name} 
+                          className={`
+                            ${isMobileView ? 'w-16 h-16' : 'w-12 h-12'}
+                            object-cover mb-1 rounded
+                          `}
+                        />
+                        <span className="text-xs font-semibold text-center">{product.name}</span>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
-      </div>
+            </div>
 
-      {/* Navigation Dots for Mobile */}
-      {isMobileView && !showSidebar && (
-        <div className="flex justify-center py-2 bg-gray-800">
-          {products.map((_, index) => (
+            {/* Navigation Dots for Mobile */}
+            {isMobileView && !showSidebar && (
+              <div className="flex justify-center py-2 bg-gray-800">
+                {products.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => selectProduct(index)}
+                    className={`mx-1 w-3 h-3 rounded-full ${
+                      currentProductIndex === index ? 'bg-blue-600' : 'bg-gray-600'
+                    }`}
+                    aria-label={`Go to product ${index + 1}`}
+                  />
+                ))}
+              </div>
+            )}
+          </div>
+          
+          {/* Create button at the bottom */}
+          <div className="w-full bg-gray-700 py-4">
             <button
-              key={index}
-              onClick={() => selectProduct(index)}
-              className={`mx-1 w-3 h-3 rounded-full ${
-                currentProductIndex === index ? 'bg-blue-600' : 'bg-gray-600'
-              }`}
-              aria-label={`Go to product ${index + 1}`}
-            />
-          ))}
-        </div>
-      )}
-    </div>
-          <div className="mt-6">
-          <div className="w-full flex justify-center py-4 bg-gray-700">
-        <button
-          onMouseEnter={() => setIsCreateHovered(true)}
-          onMouseLeave={() => setIsCreateHovered(false)}
-          className={`
-            bg-blue-500 text-white py-3 px-6 rounded-md 
-            transition-all duration-300 shadow-lg 
-            hover:bg-blue-600
-            ${isCreateHovered ? 'w-[300px] scale-105' : 'w-[250px]'}
-            `}
+              onMouseEnter={() => setIsCreateHovered(true)}
+              onMouseLeave={() => setIsCreateHovered(false)}
+              className={`
+                bg-blue-500 text-white py-3 px-6 rounded-md 
+                transition-all duration-300 shadow-lg 
+                hover:bg-blue-600 mx-auto block
+                ${isCreateHovered ? 'w-[300px] scale-105' : 'w-[250px]'}
+              `}
             >
-          Create
-        </button>
-      </div>
+              Create
+            </button>
           </div>
         </div>
       </div>
