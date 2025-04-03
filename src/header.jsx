@@ -7,10 +7,10 @@ const Header = () => {
   const navigate = useNavigate();
 
   const headerItems = [
-    { name: 'Discover', path: '/discover' },
+    { name: 'Discover', path: '/home' },
     { name: 'Library', path: '/library' },
-    { name: 'New', path: '/new' },
-    { name: 'Categories', path: '/categories' },
+    { name: 'New', path: '/#new' },
+    { name: 'Categories', path: '/category' },
     { name: 'News', path: '/news' }
   ];
 

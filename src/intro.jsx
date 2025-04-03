@@ -1,28 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import trialVid from './assets/Harry_Potter.mp4';
+import trialVid from './assets/TRIAL_VID.mp4';
+import unrealvid from './assets/UNREAL_VID.mp4'
 
 const products = [
   {
-    id: 'assassins-creed',
+    id: 'unreal-engine',
     name: "Unreal Engine",
-    videoUrl: '/path/to/assassins-creed-video.mp4',
+    videoUrl: unrealvid,
     coverImage: '/path/to/assassins-creed-cover.jpg'
   },
   {
-    id: 'another-game',
+    id: 'metahuman',
     name: 'MetaHuman',
     videoUrl: '/path/to/another-game-video.mp4',
     coverImage: '/path/to/another-game-cover.jpg'
   },
   {
-    id: 'third-game',
+    id: 'twinmotion',
     name: 'Twinmotion',
     videoUrl: '/path/to/third-game-video.mp4',
     coverImage: '/path/to/third-game-cover.jpg'
   },
   {
-    id: 'fourth-game',
+    id: 'realityscan',
     name: 'RealityScan',
     videoUrl: '/path/to/fourth-game-video.mp4',
     coverImage: '/path/to/fourth-game-cover.jpg'
@@ -214,7 +215,7 @@ const IntroPage = () => {
                           src={product.coverImage} 
                           alt={product.name} 
                           className={`
-                            ${isMobileView ? 'w-16 h-16' : 'w-12 h-12'}
+                            ${isMobileView ? 'w-16 h-16' : 'w-25 h-12'}
                             object-cover mb-1 rounded
                           `}
                         />

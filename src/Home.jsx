@@ -131,11 +131,11 @@ const HomePage = () => {
       <div className="w-full h-full bg-black p-4 overflow-y-auto">
         <CarouselwithText></CarouselwithText>
         <div className="w-full bg-black p-2">
-          <div className="bg-black w-full">
+          <div id="new" className="bg-black w-full bg-gray-900">
             {/* Category Name */}
-            <div className="p-4">
+            <div className="p-4 ">
               <h2 className="text-2xl font-semibold text-white">
-                Category Name
+                New Games
               </h2>
             </div>
 
