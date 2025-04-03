@@ -80,135 +80,135 @@ const GamePage = () => {
 
     return (
         <div className="flex w-full h-screen overflow-hidden">
-            {/* Left section - 75% width with proper overflow handling */}
-            <div className="w-3/4 bg-blue-100 p-4 overflow-auto">
-                <div className="w-full mx-auto bg-gray-100 p-2 sm:p-4 rounded-lg shadow-lg">
-                    {/* Game Title */}
-                    <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 sm:mb-4 text-gray-800">{gameData.title}</h1>
+    {/* Left section - 75% width with proper overflow handling */}
+    <div className="w-3/4 bg-black p-4 overflow-auto">
+        <div className="w-full mx-auto bg-black p-2 sm:p-4 rounded-lg shadow-lg">
+            {/* Game Title */}
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 sm:mb-4 text-white">{gameData.title}</h1>
 
-                    {/* Main Image Showcase */}
-                    <div className="mb-2 sm:mb-4 bg-gray-200 rounded-lg overflow-hidden">
+            {/* Main Image Showcase */}
+            <div className="mb-2 sm:mb-4 bg-black rounded-lg overflow-hidden">
+                <img
+                    src={images[currentImage]}
+                    alt={`${gameData.title} screenshot ${currentImage + 1}`}
+                    className="w-full h-48 sm:h-56 md:h-64 object-cover"
+                />
+            </div>
+
+            {/* Thumbnail Gallery - Always 5 in one row */}
+            <div className="flex justify-between mb-3 sm:mb-6 space-x-1 sm:space-x-2">
+                {images.map((img, index) => (
+                    <button
+                        key={index}
+                        onClick={() => handleImageClick(index)}
+                        className={`w-1/5 rounded-md overflow-hidden border-2 ${currentImage === index ? 'border-purple-500' : 'border-black'}`}
+                    >
                         <img
-                            src={images[currentImage]}
-                            alt={`${gameData.title} screenshot ${currentImage + 1}`}
-                            className="w-full h-48 sm:h-56 md:h-64 object-cover"
+                            src={img}
+                            alt={`Thumbnail ${index + 1}`}
+                            className="w-full h-8 sm:h-12 md:h-16 object-cover"
                         />
+                    </button>
+                ))}
+            </div>
+
+            {/* Categories - Always 5 in one row */}
+            <div className="flex justify-between mb-3 sm:mb-6 space-x-1 sm:space-x-2">
+                {gameData.tags.slice(0, 5).map((tag, index) => (
+                    <div key={index} className="w-1/5 bg-black text-gray-200 p-1 sm:p-2 rounded-md text-center text-xs sm:text-sm truncate">
+                        {tag}
+                    </div>
+                ))}
+            </div>
+
+            {/* Game Description */}
+            <div className="bg-black p-2 sm:p-4 rounded-lg mb-3 sm:mb-6">
+                <h2 className="text-lg sm:text-xl font-bold mb-1 sm:mb-2 text-white">Game Description</h2>
+                <p className="text-gray-300 text-sm sm:text-base">{gameData.description}</p>
+            </div>
+
+            {/* Ratings and Info */}
+            <div className="bg-black p-2 sm:p-4 rounded-lg">
+                <h2 className="text-lg sm:text-xl font-bold mb-2 sm:mb-4 text-white">Ratings & Details</h2>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
+                    {/* Star Rating */}
+                    <div className="flex items-center">
+                        <div className="flex mr-2">
+                            {renderStars(gameData.rating)}
+                        </div>
+                        <span className="text-base sm:text-lg font-bold text-white">{gameData.rating.toFixed(1)}/5.0</span>
                     </div>
 
-                    {/* Thumbnail Gallery - Always 5 in one row */}
-                    <div className="flex justify-between mb-3 sm:mb-6 space-x-1 sm:space-x-2">
-                        {images.map((img, index) => (
-                            <button
-                                key={index}
-                                onClick={() => handleImageClick(index)}
-                                className={`w-1/5 rounded-md overflow-hidden border-2 ${currentImage === index ? 'border-blue-500' : 'border-transparent'}`}
-                            >
-                                <img
-                                    src={img}
-                                    alt={`Thumbnail ${index + 1}`}
-                                    className="w-full h-8 sm:h-12 md:h-16 object-cover"
-                                />
-                            </button>
-                        ))}
-                    </div>
+                    {/* Game Details */}
+                    <div className="space-y-1 sm:space-y-2 text-sm sm:text-base text-gray-300">
+                        <div className="flex items-center">
+                            <Clock className="mr-2 text-purple-400" size={16} />
+                            <span>{gameData.playTime}</span>
+                        </div>
 
-                    {/* Categories - Always 5 in one row */}
-                    <div className="flex justify-between mb-3 sm:mb-6 space-x-1 sm:space-x-2">
-                        {gameData.tags.slice(0, 5).map((tag, index) => (
-                            <div key={index} className="w-1/5 bg-gray-700 text-white p-1 sm:p-2 rounded-md text-center text-xs sm:text-sm truncate">
-                                {tag}
-                            </div>
-                        ))}
-                    </div>
+                        <div className="flex items-center">
+                            <Users className="mr-2 text-green-400" size={16} />
+                            <span>{gameData.players}</span>
+                        </div>
 
-                    {/* Game Description */}
-                    <div className="bg-gray-300 p-2 sm:p-4 rounded-lg mb-3 sm:mb-6">
-                        <h2 className="text-lg sm:text-xl font-bold mb-1 sm:mb-2">Game Description</h2>
-                        <p className="text-gray-800 text-sm sm:text-base">{gameData.description}</p>
-                    </div>
-
-                    {/* Ratings and Info */}
-                    <div className="bg-gray-300 p-2 sm:p-4 rounded-lg">
-                        <h2 className="text-lg sm:text-xl font-bold mb-2 sm:mb-4">Ratings & Details</h2>
-
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
-                            {/* Star Rating */}
-                            <div className="flex items-center">
-                                <div className="flex mr-2">
-                                    {renderStars(gameData.rating)}
-                                </div>
-                                <span className="text-base sm:text-lg font-bold">{gameData.rating.toFixed(1)}/5.0</span>
-                            </div>
-
-                            {/* Game Details */}
-                            <div className="space-y-1 sm:space-y-2 text-sm sm:text-base">
-                                <div className="flex items-center">
-                                    <Clock className="mr-2 text-blue-600" size={16} />
-                                    <span>{gameData.playTime}</span>
-                                </div>
-
-                                <div className="flex items-center">
-                                    <Users className="mr-2 text-green-600" size={16} />
-                                    <span>{gameData.players}</span>
-                                </div>
-
-                                <div className="flex items-center">
-                                    <Trophy className="mr-2 text-yellow-600" size={16} />
-                                    <span>Difficulty: {gameData.difficulty}</span>
-                                </div>
-                            </div>
+                        <div className="flex items-center">
+                            <Trophy className="mr-2 text-yellow-400" size={16} />
+                            <span>Difficulty: {gameData.difficulty}</span>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
 
-            {/* Right section - 25% width with proper overflow handling */}
-            <div className="w-1/4 bg-gray-100 p-4 overflow-auto">
-                <div className="w-full">
-                    <h2 className="text-xl font-bold mb-4 text-gray-800">Customer Reviews</h2>
+    {/* Right section - 25% width with proper overflow handling */}
+    <div className="w-1/4 bg-black p-4 overflow-auto">
+        <div className="w-full">
+            <h2 className="text-xl font-bold mb-4 text-white">Customer Reviews</h2>
 
-                    <div className="space-y-4">
-                        {comments.map((comment) => (
-                            <div key={comment.id} className="border rounded-lg p-3 shadow-sm hover:shadow-md transition-shadow">
-                                <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-2">
-                                    <div className="mb-2 sm:mb-0">
-                                        <h3 className="text-base font-semibold text-gray-800">{comment.name}</h3>
-                                        <div className="flex items-center mt-1">
-                                            {renderStars(comment.rating)}
-                                            <span className="ml-2 text-xs text-gray-600">{comment.rating}</span>
-                                        </div>
-                                    </div>
-                                    <div className="text-xs text-gray-500">{comment.date}</div>
+            <div className="space-y-4">
+                {comments.map((comment) => (
+                    <div key={comment.id} className="rounded-lg p-3 shadow-sm hover:shadow-md transition-shadow bg-black">
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-2">
+                            <div className="mb-2 sm:mb-0">
+                                <h3 className="text-base font-semibold text-gray-200">{comment.name}</h3>
+                                <div className="flex items-center mt-1">
+                                    {renderStars(comment.rating)}
+                                    <span className="ml-2 text-xs text-gray-400">{comment.rating}</span>
                                 </div>
-
-                                <p className="text-sm text-gray-700 mt-2">{comment.comment}</p>
                             </div>
-                        ))}
-                    </div>
+                            <div className="text-xs text-gray-500">{comment.date}</div>
+                        </div>
 
-                    {/* Simple pagination */}
-                    <div className="flex justify-center mt-6">
-                        <nav className="inline-flex rounded-md shadow">
-                            <a href="#" className="px-2 py-1 rounded-l-md border border-gray-300 bg-white text-xs font-medium text-gray-500 hover:bg-gray-50">
-                                Previous
-                            </a>
-                            <a href="#" className="px-2 py-1 border-t border-b border-gray-300 bg-white text-xs font-medium text-gray-700 hover:bg-gray-50">
-                                1
-                            </a>
-                            <a href="#" className="px-2 py-1 border-t border-b border-gray-300 bg-white text-xs font-medium text-gray-700 hover:bg-gray-50">
-                                2
-                            </a>
-                            <a href="#" className="px-2 py-1 border-t border-b border-gray-300 bg-white text-xs font-medium text-gray-700 hover:bg-gray-50">
-                                3
-                            </a>
-                            <a href="#" className="px-2 py-1 rounded-r-md border border-gray-300 bg-white text-xs font-medium text-gray-500 hover:bg-gray-50">
-                                Next
-                            </a>
-                        </nav>
+                        <p className="text-sm text-gray-400 mt-2">{comment.comment}</p>
                     </div>
-                </div>
+                ))}
+            </div>
+
+            {/* Simple pagination */}
+            <div className="flex justify-center mt-6">
+                <nav className="inline-flex rounded-md shadow">
+                    <a href="#" className="px-2 py-1 rounded-l-md bg-black text-xs font-medium text-gray-400 hover:bg-gray-900">
+                        Previous
+                    </a>
+                    <a href="#" className="px-2 py-1 bg-black text-xs font-medium text-gray-300 hover:bg-gray-900">
+                        1
+                    </a>
+                    <a href="#" className="px-2 py-1 bg-black text-xs font-medium text-gray-300 hover:bg-gray-900">
+                        2
+                    </a>
+                    <a href="#" className="px-2 py-1 bg-black text-xs font-medium text-gray-300 hover:bg-gray-900">
+                        3
+                    </a>
+                    <a href="#" className="px-2 py-1 rounded-r-md bg-black text-xs font-medium text-gray-400 hover:bg-gray-900">
+                        Next
+                    </a>
+                </nav>
             </div>
         </div>
+    </div>
+</div>
     )
 }
 export default GamePage;

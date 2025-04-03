@@ -90,7 +90,7 @@ const IntroPage = () => {
   const [isCreateHovered, setIsCreateHovered] = useState(false);
 
   return (
-    <div className="block md:grid md:grid-cols-2 w-full h-screen overflow-hidden">
+    <div className="block md:grid md:grid-cols-2 w-full h-screen overflow-hidden bg-black">
       {/* Left Section - Video Background */}
       <div className="w-full h-1/2 md:h-full relative">
         <div className="w-full h-full relative">
@@ -108,16 +108,16 @@ const IntroPage = () => {
             <h1 className="font-montserrat font-extrabold text-2xl sm:text-3xl md:text-4xl">Epic Games Store</h1>
           </div>
           
-          {/* Play Button */}
+          {/* Play Button - Keeping original blue color */}
           <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2">
-            <button className="text-xl sm:text-2xl px-4 py-2 sm:px-6 sm:py-3 rounded-full bg-blue-500 text-white hover:scale-110 transition duration-300">
+            <button className="text-xl sm:text-2xl px-4 py-2 sm:px-6 sm:py-3 rounded-full bg-blue-500 text-white hover:bg-blue-600 hover:scale-110 transition duration-300">
               <Link to="/home">Play</Link>
             </button>
           </div>
           
           {/* Mute Button */}
           <button
-            className="absolute bottom-4 left-4 text-white bg-gray-800 px-3 py-1 sm:px-4 sm:py-2 rounded text-sm sm:text-base"
+            className="absolute bottom-4 left-4 text-white bg-gray-900 px-3 py-1 sm:px-4 sm:py-2 rounded text-sm sm:text-base border border-gray-700"
             onClick={handleUnmute}
           >
             {muted ? 'Unmute' : 'Mute'}
@@ -126,20 +126,20 @@ const IntroPage = () => {
       </div>
       
       {/* Right Section - Carousel and Button */}
-      <div className="w-full h-1/2 md:h-full bg-green-100  md: overflow-y-auto">
+      <div className="w-full h-1/2 md:h-full bg-black md:overflow-y-auto">
         {/* Removed the max-w-lg and mx-auto constraints */}
         <div className="w-full h-full">
           {/* Game showcase section - Takes full width */}
-          <div className="w-full h-[calc(100%-80px)] bg-gray-900 text-white overflow-hidden">
+          <div className="w-full h-full bg-black text-white overflow-hidden relative">
             {/* Header with Product Name and Toggle Button */}
-            <div className="flex justify-between items-center py-3 px-4 bg-gray-800">
-              <div className="text-lg md:text-2xl font-bold truncate">
+            <div className="flex justify-between items-center py-3 px-4 bg-black">
+              <div className="text-lg md:text-2xl font-bold truncate ">
                 {currentProduct.name}
               </div>
               {isMobileView && (
                 <button 
                   onClick={toggleSidebar}
-                  className="bg-blue-600 hover:bg-blue-700 px-3 py-1 rounded text-sm font-medium"
+                  className="bg-black hover:bg-blue-700 px-3 py-1 rounded text-sm font-medium"
                 >
                   {showSidebar ? 'Hide Menu' : 'Show Menu'}
                 </button>
@@ -149,7 +149,7 @@ const IntroPage = () => {
             {/* Main Content Area */}
             <div className="flex flex-1 w-full h-[calc(100%-60px)] relative overflow-hidden">
               {/* Video Area (Expands to fill space) */}
-              <div className={`${showSidebar && isMobileView ? 'hidden' : 'flex-1'} bg-black flex items-center justify-center`}>
+              <div className={`${showSidebar && isMobileView ? 'hidden' : 'flex-1'} bg-black flex items-center justify-center relative`}>
                 <video 
                   key={currentProduct.id}
                   src={currentProduct.videoUrl} 
@@ -159,6 +159,21 @@ const IntroPage = () => {
                   muted
                   playsInline
                 />
+                
+                {/* Create button positioned over the video */}
+                <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2">
+                  <button
+                    onMouseEnter={() => setIsCreateHovered(true)}
+                    onMouseLeave={() => setIsCreateHovered(false)}
+                    className={`
+                      bg-blue-500 text-white text-xl sm:text-2xl px-4 py-2 sm:px-6 sm:py-3 rounded-full
+                      transition-all duration-300 shadow-lg 
+                      hover:bg-blue-600 hover:scale-110
+                    `}
+                  >
+                    Create
+                  </button>
+                </div>
               </div>
 
               {/* Right Sidebar (Scrollable Thumbnails) */}
@@ -168,15 +183,15 @@ const IntroPage = () => {
                     ? showSidebar ? 'absolute inset-0 z-10' : 'hidden' 
                     : 'w-1/5 min-w-[120px] max-w-[200px]'
                   } 
-                  bg-gray-800 overflow-y-auto
+                  bg-black overflow-y-auto
                 `}
               >
                 {/* Mobile View Close Button */}
                 {isMobileView && showSidebar && (
-                  <div className="sticky top-0 bg-gray-900 p-2 text-right">
+                  <div className="sticky top-0 bg-black p-2 text-right">
                     <button 
                       onClick={toggleSidebar}
-                      className="bg-gray-700 hover:bg-gray-600 px-2 py-1 rounded text-sm"
+                      className="bg-gray-800 hover:bg-gray-700 px-2 py-1 rounded text-sm"
                     >
                       Close
                     </button>
@@ -196,7 +211,7 @@ const IntroPage = () => {
                         cursor-pointer
                         ${currentProductIndex === index 
                           ? 'bg-blue-600 border-blue-400' 
-                          : 'hover:bg-gray-700 border-gray-600'}
+                          : 'hover:bg-gray-800 border-gray-700'}
                       `}
                       onClick={() => selectProduct(index)}
                     >
@@ -219,35 +234,19 @@ const IntroPage = () => {
 
             {/* Navigation Dots for Mobile */}
             {isMobileView && !showSidebar && (
-              <div className="flex justify-center py-2 bg-gray-800">
+              <div className="flex justify-center py-2 bg-gray-900 absolute bottom-0 w-full">
                 {products.map((_, index) => (
                   <button
                     key={index}
                     onClick={() => selectProduct(index)}
                     className={`mx-1 w-3 h-3 rounded-full ${
-                      currentProductIndex === index ? 'bg-blue-600' : 'bg-gray-600'
+                      currentProductIndex === index ? 'bg-blue-600' : 'bg-gray-700'
                     }`}
                     aria-label={`Go to product ${index + 1}`}
                   />
                 ))}
               </div>
             )}
-          </div>
-          
-          {/* Create button at the bottom */}
-          <div className="w-full bg-gray-700 py-4">
-            <button
-              onMouseEnter={() => setIsCreateHovered(true)}
-              onMouseLeave={() => setIsCreateHovered(false)}
-              className={`
-                bg-blue-500 text-white py-3 px-6 rounded-md 
-                transition-all duration-300 shadow-lg 
-                hover:bg-blue-600 mx-auto block
-                ${isCreateHovered ? 'w-[300px] scale-105' : 'w-[250px]'}
-              `}
-            >
-              Create
-            </button>
           </div>
         </div>
       </div>

@@ -22,7 +22,7 @@ const Header = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 flex items-center justify-between px-4 py-3 bg-white shadow-md">
+    <header className="sticky top-0 z-50 flex items-center justify-between px-4 py-3 bg-black shadow-md">
       {/* Logo */}
       <Link to="/" className="flex items-center">
         <img 
@@ -38,7 +38,7 @@ const Header = () => {
           <Link
             key={item.name}
             to={item.path}
-            className="text-gray-700 transition-all duration-300 transform hover:scale-110 hover:text-gray-900"
+            className="text-gray-300 transition-all duration-300 transform hover:scale-110 hover:text-white"
           >
             {item.name}
           </Link>
@@ -52,11 +52,11 @@ const Header = () => {
           placeholder="Search" 
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="px-3 py-2 border-2 border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent w-64"
+          className="px-3 py-2 border-2 border-gray-600 bg-gray-800 text-white rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent w-64 placeholder-gray-400"
         />
         <button 
           type="submit" 
-          className="bg-gray-400 text-white px-4 py-2 border-2 border-l-0 border-gray-300 rounded-r-md hover:bg-gray-500 transition-colors flex items-center justify-center"
+          className="bg-gray-700 text-white px-4 py-2 border-2 border-l-0 border-gray-600 rounded-r-md hover:bg-gray-600 transition-colors flex items-center justify-center"
         >
           <Search size={20} />
         </button>
