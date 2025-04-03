@@ -5,33 +5,27 @@ import trialVid from './assets/Harry_Potter.mp4';
 const products = [
   {
     id: 'assassins-creed',
-    name: "Assassin's Creed Shadows",
+    name: "Unreal Engine",
     videoUrl: '/path/to/assassins-creed-video.mp4',
     coverImage: '/path/to/assassins-creed-cover.jpg'
   },
   {
     id: 'another-game',
-    name: 'Another Game Title',
+    name: 'MetaHuman',
     videoUrl: '/path/to/another-game-video.mp4',
     coverImage: '/path/to/another-game-cover.jpg'
   },
   {
     id: 'third-game',
-    name: 'Third Game Title',
+    name: 'Twinmotion',
     videoUrl: '/path/to/third-game-video.mp4',
     coverImage: '/path/to/third-game-cover.jpg'
   },
   {
     id: 'fourth-game',
-    name: 'Fourth Game Title',
+    name: 'RealityScan',
     videoUrl: '/path/to/fourth-game-video.mp4',
     coverImage: '/path/to/fourth-game-cover.jpg'
-  },
-  {
-    id: 'fifth-game',
-    name: 'Fifth Game Title',
-    videoUrl: '/path/to/fifth-game-video.mp4',
-    coverImage: '/path/to/fifth-game-cover.jpg'
   }
 ];
 
