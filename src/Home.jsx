@@ -36,7 +36,7 @@ const HomePage = () => {
     }
     return stars;
   };
-
+  
   return (
     <div className={`w-full h-screen min-h-screen overflow-hidden grid ${selectedGame ? "grid-cols-[15%_60%_25%]" : "grid-cols-[15%_85%]"}`}>
       {/* Sidebar Filters */}
@@ -56,7 +56,7 @@ const HomePage = () => {
       {/* Games List */}
       <div className="w-full h-full bg-black p-4 overflow-y-auto">
         <CarouselwithText />
-        <h2 className="text-2xl font-semibold text-white p-4">New Games</h2>
+        <h2 className="text-2xl font-semibold text-white p-4">Games</h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 p-4">
           {games.map((game) => (
             <div key={game.id} className="bg-black rounded-lg shadow-lg cursor-pointer" onClick={() => handleGameClick(game)}>
@@ -94,12 +94,35 @@ const HomePage = () => {
               <h2 className="text-xl font-bold mb-2 text-white">Game Description</h2>
               <p className="text-gray-300 text-sm">{selectedGame.description}</p>
             </div>
-            <div className="mb-4">
-              <h2 className="text-xl font-bold text-white">Ratings & Details</h2>
-              <div className="flex items-center mb-2">{renderStars(selectedGame.rating)} <span className="ml-2 text-white">{selectedGame.rating}/5</span></div>
-              <div className="text-gray-300"><Clock className="inline mr-2" size={18} />{selectedGame.playTime}</div>
-              <div className="text-gray-300"><Users className="inline mr-2" size={18} />{selectedGame.players}</div>
-              <div className="text-gray-300"><Trophy className="inline mr-2" size={18} />Difficulty: {selectedGame.difficulty}</div>
+            {/* Ratings and Info - Improved spacing and alignment */}
+            <div className="bg-black p-3 sm:p-4 rounded-lg">
+              <h2 className="text-lg sm:text-xl font-bold mb-3 text-white">Ratings & Details</h2>
+
+              {/* Star Rating Section - Fixed alignment */}
+              <div className="flex items-center mb-3">
+                <div className="flex mr-2">
+                  {renderStars(selectedGame.ratings)}
+                </div>
+                <span className="text-base sm:text-lg font-bold text-yellow-500">{selectedGame.ratings}/5.0</span>
+              </div>
+
+              {/* Game Details - Better spacing */}
+              <div className="space-y-2">
+                <div className="flex items-center">
+                  <Clock className="mr-3 text-yellow-500" size={18} />
+                  <span className="text-sm sm:text-base text-gray-300">{selectedGame.playtime} hours</span>
+                </div>
+
+                <div className="flex items-center">
+                  <Users className="mr-3 text-yellow-500" size={18} />
+                  <span className="text-sm sm:text-base text-gray-300">{selectedGame.players} players</span>
+                </div>
+
+                <div className="flex items-center">
+                  <Trophy className="mr-3 text-yellow-500" size={18} />
+                  <span className="text-sm sm:text-base text-gray-300">Difficulty: {selectedGame.difficulty}</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>

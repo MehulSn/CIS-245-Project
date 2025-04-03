@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Star, Clock, Users, Trophy, Tag } from "lucide-react";
 import Marvel1 from './assets/marvel1.jpg'
 import Marvel from './assets/Marvel.mp4'
 import Harry1 from './assets/harry1.png'
@@ -10,6 +9,11 @@ import Creed1 from './assets/Creed1.png'
 import Creed from './assets/Creed.mp4'
 import Inn1 from './assets/Inn1.png'
 import Inn from './assets/Inn.mp4'
+import games from './data.json'
+
+const categories = [
+    "Multiplayer", "Adventure", "Action", "Fantasy", "Sports", "Open World"
+  ];
 const products = [
     {
       id: 'assassins-creed',
@@ -71,59 +75,13 @@ const CategoryPage = () => {
 
         return () => clearInterval(interval);
     }, []);
-
-    const gameData = {
-        title: "Cosmic Adventures",
-        description: "Embark on an epic journey through the stars in this action-packed adventure game. Explore mysterious planets, battle alien creatures, and uncover the secrets of the universe. With stunning graphics and an immersive storyline, Cosmic Adventures offers countless hours of gameplay for both casual and hardcore gamers.",
-        rating: 4.5,
-        playTime: "20+ hours",
-        players: "1-4 players",
-        difficulty: "Medium",
-        tags: ["Adventure", "Sci-Fi", "Action", "Multiplayer", "Strategy"]
-    };
-
-    // Sample images for the gallery
-    const images = [
-        "/api/placeholder/640/360",
-        "/api/placeholder/640/360",
-        "/api/placeholder/640/360",
-        "/api/placeholder/640/360",
-        "/api/placeholder/640/360"
-    ];
-
-    // State to track which image is currently displayed
-    const [currentImage, setCurrentImage] = useState(0);
-
-    // Handle image thumbnail click
-    const handleImageClick = (index) => {
-        setCurrentImage(index);
-    };
-
-    // Generate star rating display
-    const renderStars = (rating) => {
-        const stars = [];
-        const fullStars = Math.floor(rating);
-        const hasHalfStar = rating % 1 >= 0.5;
-
-        for (let i = 0; i < 5; i++) {
-            if (i < fullStars) {
-                stars.push(<Star key={i} className="text-yellow-500 fill-yellow-500" size={20} />);
-            } else if (i === fullStars && hasHalfStar) {
-                stars.push(<Star key={i} className="text-yellow-500 fill-yellow-500 opacity-50" size={20} />);
-            } else {
-                stars.push(<Star key={i} className="text-gray-300" size={20} />);
-            }
-        }
-        return stars;
-    };
-
-    
+   
     return (
         <div className="flex flex-col bg-black">
     {/* Hero Section with Video Background */}
     <div className="flex w-full h-screen">
         {/* Left Section - 75% Width */}
-        <div className="w-3/4 h-full relative overflow-hidden">
+        <div className="w-full h-full relative overflow-hidden">
             {/* Background Video */}
             <video
                 key={currentProduct.id}
@@ -188,395 +146,60 @@ const CategoryPage = () => {
                 </div>
             </div>
         </div>
-
-        {/* Right Section - 25% Width with fixed height and scrollable content */}
-        <div className="w-1/4 bg-black h-screen overflow-y-auto">
-            <div className="w-full max-w-full mx-auto bg-black p-2 sm:p-4 rounded-lg shadow-lg">
-                {/* Game Title */}
-                <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 sm:mb-4 text-white">{gameData.title}</h1>
-
-                {/* Main Image Showcase */}
-                <div className="mb-2 sm:mb-4 bg-black rounded-lg overflow-hidden">
-                    <img
-                        src={images[currentImage]}
-                        alt={`${gameData.title} screenshot ${currentImage + 1}`}
-                        className="w-full h-48 sm:h-56 md:h-64 object-cover"
-                    />
-                </div>
-
-                {/* Thumbnail Gallery - Always 5 in one row */}
-                <div className="flex justify-between mb-3 sm:mb-6 space-x-1 sm:space-x-2">
-                    {images.map((img, index) => (
-                        <button
-                            key={index}
-                            onClick={() => handleImageClick(index)}
-                            className={`w-1/5 rounded-md overflow-hidden border-2 ${currentImage === index ? 'border-yellow-500' : 'border-transparent'}`}
-                        >
-                            <img
-                                src={img}
-                                alt={`Thumbnail ${index + 1}`}
-                                className="w-full h-8 sm:h-12 md:h-16 object-cover"
-                            />
-                        </button>
-                    ))}
-                </div>
-
-                {/* Categories - Always 5 in one row */}
-                <div className="flex justify-between mb-3 sm:mb-6 space-x-1 sm:space-x-2">
-                    {gameData.tags.slice(0, 5).map((tag, index) => (
-                        <div key={index} className="w-1/5 bg-black text-white p-1 sm:p-2 rounded-md text-center text-xs sm:text-sm truncate">
-                            {tag}
-                        </div>
-                    ))}
-                </div>
-
-                {/* Game Description */}
-                <div className="bg-black p-2 sm:p-4 rounded-lg mb-3 sm:mb-6">
-                    <h2 className="text-lg sm:text-xl font-bold mb-1 sm:mb-2 text-white">Game Description</h2>
-                    <p className="text-gray-300 text-sm sm:text-base">{gameData.description}</p>
-                </div>
-
-                {/* Ratings and Info - Improved spacing and alignment */}
-                <div className="bg-black p-3 sm:p-4 rounded-lg">
-                    <h2 className="text-lg sm:text-xl font-bold mb-3 text-white">Ratings & Details</h2>
-
-                    {/* Star Rating Section - Fixed alignment */}
-                    <div className="flex items-center mb-3">
-                        <div className="flex mr-2">
-                            {renderStars(gameData.rating)}
-                        </div>
-                        <span className="text-base sm:text-lg font-bold text-yellow-500">{gameData.rating.toFixed(1)}/5.0</span>
-                    </div>
-
-                    {/* Game Details - Better spacing */}
-                    <div className="space-y-2">
-                        <div className="flex items-center">
-                            <Clock className="mr-3 text-yellow-500" size={18} />
-                            <span className="text-sm sm:text-base text-gray-300">{gameData.playTime}</span>
-                        </div>
-
-                        <div className="flex items-center">
-                            <Users className="mr-3 text-yellow-500" size={18} />
-                            <span className="text-sm sm:text-base text-gray-300">{gameData.players}</span>
-                        </div>
-
-                        <div className="flex items-center">
-                            <Trophy className="mr-3 text-yellow-500" size={18} />
-                            <span className="text-sm sm:text-base text-gray-300">Difficulty: {gameData.difficulty}</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 
     {/* First Category Section - MOVED OUTSIDE THE VIDEO SECTION */}
     <div className="w-full bg-black p-2">
-        <div className="bg-black w-full">
+      {categories.map((category) => {
+        const filteredGames = games.filter((game) => game.genres.includes(category));
+        return (
+          <div key={category} className="bg-black w-full mb-6">
             {/* Category Name */}
             <div className="p-4">
-                <h2 className="text-2xl font-semibold text-white">
-                    Multiplayer Games
-                </h2>
+              <h2 className="text-2xl font-semibold text-white">{category} Games</h2>
             </div>
 
             {/* Container for Items */}
-            <div id="Multiplayer" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
-                {/* Game Items */}
-                {[1, 2, 3, 4].map((item) => (
-                    <div key={item} className="bg-black rounded-lg overflow-hidden shadow-lg border border-gray-800">
-                        {/* Game Image */}
-                        <img
-                            src="/api/placeholder/400/250"
-                            alt="Game preview"
-                            className="w-full h-auto object-cover"
-                        />
-
-                        {/* Game Details Section */}
-                        <div className="p-4 bg-black text-white">
-                            <div className="flex items-center justify-between">
-                                {/* Game Title and Platform */}
-                                <div>
-                                    <h2 className="text-xl font-bold mb-1">
-                                        33 Immortals
-                                    </h2>
-                                    <div className="text-xs text-gray-400">
-                                        PC Game
-                                    </div>
-                                </div>
-
-                                {/* Price/Purchase Section */}
-                                <div className="flex items-center space-x-2">
-                                    <span className="text-lg font-semibold text-yellow-500">
-                                        ₹719
-                                    </span>
-                                    <button className="bg-yellow-500 hover:bg-yellow-600 text-black px-4 py-2 rounded-full text-sm transition-colors">
-                                        Buy
-                                    </button>
-                                </div>
-                            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
+              {/* Game Items */}
+              {filteredGames.length > 0 ? (
+                filteredGames.map((game) => (
+                  <div key={game.id} className="bg-black rounded-lg overflow-hidden shadow-lg border border-gray-800">
+                    {/* Game Image */}
+                    <img
+                      src={game.pics[0] || "/api/placeholder/400/250"}
+                      alt={game.title}
+                      className="w-full h-auto object-cover"
+                    />
+                    {/* Game Details Section */}
+                    <div className="p-4 bg-black text-white">
+                      <div className="flex items-center justify-between">
+                        {/* Game Title and Platform */}
+                        <div>
+                          <h2 className="text-xl font-bold mb-1">{game.title}</h2>
+                          <div className="text-xs text-gray-400">PC Game</div>
                         </div>
+
+                        {/* Price/Purchase Section */}
+                        <div className="flex items-center space-x-2">
+                          <span className="text-lg font-semibold text-yellow-500">₹{game.price}</span>
+                          <button className="bg-yellow-500 hover:bg-yellow-600 text-black px-4 py-2 rounded-full text-sm transition-colors">
+                            Buy
+                          </button>
+                        </div>
+                      </div>
                     </div>
-                ))}
+                  </div>
+                ))
+              ) : (
+                <p className="text-white">No games available in this category.</p>
+              )}
             </div>
-        </div>
+          </div>
+        );
+      })}
     </div>
 
-    {/* Second Category Section */}
-    <div className="w-full bg-black p-2">
-        <div className="bg-black w-full">
-            {/* Category Name */}
-            <div className="p-4">
-                <h2 className="text-2xl font-semibold text-white">
-                    Adventure Games
-                </h2>
-            </div>
-
-            {/* Container for Items */}
-            <div id="Adventure" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
-                {/* Game Items */}
-                {[1, 2, 3, 4].map((item) => (
-                    <div key={item} className="bg-black rounded-lg overflow-hidden shadow-lg border border-gray-800">
-                        {/* Game Image */}
-                        <img
-                            src="/api/placeholder/400/250"
-                            alt="Game preview"
-                            className="w-full h-auto object-cover"
-                        />
-
-                        {/* Game Details Section */}
-                        <div className="p-4 bg-black text-white">
-                            <div className="flex items-center justify-between">
-                                {/* Game Title and Platform */}
-                                <div>
-                                    <h2 className="text-xl font-bold mb-1">
-                                        33 Immortals
-                                    </h2>
-                                    <div className="text-xs text-gray-400">
-                                        PC Game
-                                    </div>
-                                </div>
-
-                                {/* Price/Purchase Section */}
-                                <div className="flex items-center space-x-2">
-                                    <span className="text-lg font-semibold text-yellow-500">
-                                        ₹719
-                                    </span>
-                                    <button className="bg-yellow-500 hover:bg-yellow-600 text-black px-4 py-2 rounded-full text-sm transition-colors">
-                                        Buy
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                ))}
-            </div>
-        </div>
-    </div>
-    {/* Third Category Section */}
-    <div className="w-full bg-black p-2">
-        <div className="bg-black w-full">
-            {/* Category Name */}
-            <div className="p-4">
-                <h2 className="text-2xl font-semibold text-white">
-                    Action Games
-                </h2>
-            </div>
-
-            {/* Container for Items */}
-            <div id="Action" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
-                {/* Game Items */}
-                {[1, 2, 3, 4].map((item) => (
-                    <div key={item} className="bg-black rounded-lg overflow-hidden shadow-lg border border-gray-800">
-                        {/* Game Image */}
-                        <img
-                            src="/api/placeholder/400/250"
-                            alt="Game preview"
-                            className="w-full h-auto object-cover"
-                        />
-
-                        {/* Game Details Section */}
-                        <div className="p-4 bg-black text-white">
-                            <div className="flex items-center justify-between">
-                                {/* Game Title and Platform */}
-                                <div>
-                                    <h2 className="text-xl font-bold mb-1">
-                                        33 Immortals
-                                    </h2>
-                                    <div className="text-xs text-gray-400">
-                                        PC Game
-                                    </div>
-                                </div>
-
-                                {/* Price/Purchase Section */}
-                                <div className="flex items-center space-x-2">
-                                    <span className="text-lg font-semibold text-yellow-500">
-                                        ₹719
-                                    </span>
-                                    <button className="bg-yellow-500 hover:bg-yellow-600 text-black px-4 py-2 rounded-full text-sm transition-colors">
-                                        Buy
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                ))}
-            </div>
-        </div>
-    </div>
-    {/* Fourth Category Section */}
-    <div className="w-full bg-black p-2">
-        <div className="bg-black w-full">
-            {/* Category Name */}
-            <div className="p-4">
-                <h2 className="text-2xl font-semibold text-white">
-                    Fantasy Games
-                </h2>
-            </div>
-
-            {/* Container for Items */}
-            <div id="Fantasy" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
-                {/* Game Items */}
-                {[1, 2, 3, 4].map((item) => (
-                    <div key={item} className="bg-black rounded-lg overflow-hidden shadow-lg border border-gray-800">
-                        {/* Game Image */}
-                        <img
-                            src="/api/placeholder/400/250"
-                            alt="Game preview"
-                            className="w-full h-auto object-cover"
-                        />
-
-                        {/* Game Details Section */}
-                        <div className="p-4 bg-black text-white">
-                            <div className="flex items-center justify-between">
-                                {/* Game Title and Platform */}
-                                <div>
-                                    <h2 className="text-xl font-bold mb-1">
-                                        33 Immortals
-                                    </h2>
-                                    <div className="text-xs text-gray-400">
-                                        PC Game
-                                    </div>
-                                </div>
-
-                                {/* Price/Purchase Section */}
-                                <div className="flex items-center space-x-2">
-                                    <span className="text-lg font-semibold text-yellow-500">
-                                        ₹719
-                                    </span>
-                                    <button className="bg-yellow-500 hover:bg-yellow-600 text-black px-4 py-2 rounded-full text-sm transition-colors">
-                                        Buy
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                ))}
-            </div>
-        </div>
-    </div>
-    {/* Fifth Category Section */}
-    <div className="w-full bg-black p-2">
-        <div className="bg-black w-full">
-            {/* Category Name */}
-            <div className="p-4">
-                <h2 className="text-2xl font-semibold text-white">
-                    Sports Games
-                </h2>
-            </div>
-
-            {/* Container for Items */}
-            <div id="Sports" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
-                {/* Game Items */}
-                {[1, 2, 3, 4].map((item) => (
-                    <div key={item} className="bg-black rounded-lg overflow-hidden shadow-lg border border-gray-800">
-                        {/* Game Image */}
-                        <img
-                            src="/api/placeholder/400/250"
-                            alt="Game preview"
-                            className="w-full h-auto object-cover"
-                        />
-
-                        {/* Game Details Section */}
-                        <div className="p-4 bg-black text-white">
-                            <div className="flex items-center justify-between">
-                                {/* Game Title and Platform */}
-                                <div>
-                                    <h2 className="text-xl font-bold mb-1">
-                                        33 Immortals
-                                    </h2>
-                                    <div className="text-xs text-gray-400">
-                                        PC Game
-                                    </div>
-                                </div>
-
-                                {/* Price/Purchase Section */}
-                                <div className="flex items-center space-x-2">
-                                    <span className="text-lg font-semibold text-yellow-500">
-                                        ₹719
-                                    </span>
-                                    <button className="bg-yellow-500 hover:bg-yellow-600 text-black px-4 py-2 rounded-full text-sm transition-colors">
-                                        Buy
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                ))}
-            </div>
-        </div>
-    </div>
-    {/* Sixth Category Section */}
-    <div className="w-full bg-black p-2">
-        <div className="bg-black w-full">
-            {/* Category Name */}
-            <div className="p-4">
-                <h2 className="text-2xl font-semibold text-white">
-                    Open World Games
-                </h2>
-            </div>
-
-            {/* Container for Items */}
-            <div id="Open World" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
-                {/* Game Items */}
-                {[1, 2, 3, 4].map((item) => (
-                    <div key={item} className="bg-black rounded-lg overflow-hidden shadow-lg border border-gray-800">
-                        {/* Game Image */}
-                        <img
-                            src="/api/placeholder/400/250"
-                            alt="Game preview"
-                            className="w-full h-auto object-cover"
-                        />
-
-                        {/* Game Details Section */}
-                        <div className="p-4 bg-black text-white">
-                            <div className="flex items-center justify-between">
-                                {/* Game Title and Platform */}
-                                <div>
-                                    <h2 className="text-xl font-bold mb-1">
-                                        33 Immortals
-                                    </h2>
-                                    <div className="text-xs text-gray-400">
-                                        PC Game
-                                    </div>
-                                </div>
-
-                                {/* Price/Purchase Section */}
-                                <div className="flex items-center space-x-2">
-                                    <span className="text-lg font-semibold text-yellow-500">
-                                        ₹719
-                                    </span>
-                                    <button className="bg-yellow-500 hover:bg-yellow-600 text-black px-4 py-2 rounded-full text-sm transition-colors">
-                                        Buy
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                ))}
-            </div>
-        </div>
-    </div>
 </div>
     );
 };

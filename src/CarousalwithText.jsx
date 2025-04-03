@@ -15,7 +15,7 @@ import Inn from './assets/Inn.mp4'
       id: 'assassins-creed',
       name: "Assassin's Creed Shadows",
       description: "ENTER FEUDAL JAPAN - Explore the captivating open world of feudal Japan...",
-    price: '₹4,999',
+    price: '₹4000',
       videoUrl: Creed,
       coverImage: Creed1
     },
@@ -23,7 +23,7 @@ import Inn from './assets/Inn.mp4'
       id: 'another-game',
       name: 'Harry Potter: Quidditch Champions',
       description: "Your next chapter takes flight! Immerse yourself in the enchanting world of Quidditch...",
-    price: '₹4,999',
+    price: '₹4000',
       videoUrl: Harry,
       coverImage: Harry1
     },
@@ -31,7 +31,7 @@ import Inn from './assets/Inn.mp4'
       id: 'third-game',
       name: 'Innsmouth 22',
       description: "In this visual novel, the main character, Lorenzo Righi, is invited to a meeting of History Scholars...",
-    price: '₹4,999',
+    price: '₹4000',
       videoUrl: Inn,
       coverImage: Inn1
     },
@@ -39,7 +39,7 @@ import Inn from './assets/Inn.mp4'
       id: 'fourth-game',
       name: 'Black Myth: Wukong',
       description: "Black Myth: Wukong is an action RPG rooted in Chinese mythology...",
-    price: '₹4,999',
+    price: '₹4000',
       videoUrl: Wukong,
       coverImage: Wukong1
     },
@@ -47,7 +47,7 @@ import Inn from './assets/Inn.mp4'
       id: 'fifth-game',
       name: 'Marvel’s Spider-Man 2',
       description: "Spider-Sense tingling… Mask-up for more thrilling web-slinging heroics...",
-    price: '₹4,999',
+    price: '₹4000',
       videoUrl: Marvel,
       coverImage: Marvel1
     }

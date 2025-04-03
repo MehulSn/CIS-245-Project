@@ -268,3 +268,83 @@ const HomePage = () => {
 };
 
 export default HomePage;
+
+
+<div className="w-1/4 bg-black h-screen overflow-y-auto">
+            <div className="w-full max-w-full mx-auto bg-black p-2 sm:p-4 rounded-lg shadow-lg">
+                {/* Game Title */}
+                <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 sm:mb-4 text-white">{gameData.title}</h1>
+
+                {/* Main Image Showcase */}
+                <div className="mb-2 sm:mb-4 bg-black rounded-lg overflow-hidden">
+                    <img
+                        src={images[currentImage]}
+                        alt={`${gameData.title} screenshot ${currentImage + 1}`}
+                        className="w-full h-48 sm:h-56 md:h-64 object-cover"
+                    />
+                </div>
+
+                {/* Thumbnail Gallery - Always 5 in one row */}
+                <div className="flex justify-between mb-3 sm:mb-6 space-x-1 sm:space-x-2">
+                    {images.map((img, index) => (
+                        <button
+                            key={index}
+                            onClick={() => handleImageClick(index)}
+                            className={`w-1/5 rounded-md overflow-hidden border-2 ${currentImage === index ? 'border-yellow-500' : 'border-transparent'}`}
+                        >
+                            <img
+                                src={img}
+                                alt={`Thumbnail ${index + 1}`}
+                                className="w-full h-8 sm:h-12 md:h-16 object-cover"
+                            />
+                        </button>
+                    ))}
+                </div>
+
+                {/* Categories - Always 5 in one row */}
+                <div className="flex justify-between mb-3 sm:mb-6 space-x-1 sm:space-x-2">
+                    {gameData.tags.slice(0, 5).map((tag, index) => (
+                        <div key={index} className="w-1/5 bg-black text-white p-1 sm:p-2 rounded-md text-center text-xs sm:text-sm truncate">
+                            {tag}
+                        </div>
+                    ))}
+                </div>
+
+                {/* Game Description */}
+                <div className="bg-black p-2 sm:p-4 rounded-lg mb-3 sm:mb-6">
+                    <h2 className="text-lg sm:text-xl font-bold mb-1 sm:mb-2 text-white">Game Description</h2>
+                    <p className="text-gray-300 text-sm sm:text-base">{gameData.description}</p>
+                </div>
+
+                {/* Ratings and Info - Improved spacing and alignment */}
+                <div className="bg-black p-3 sm:p-4 rounded-lg">
+                    <h2 className="text-lg sm:text-xl font-bold mb-3 text-white">Ratings & Details</h2>
+
+                    {/* Star Rating Section - Fixed alignment */}
+                    <div className="flex items-center mb-3">
+                        <div className="flex mr-2">
+                            {renderStars(gameData.rating)}
+                        </div>
+                        <span className="text-base sm:text-lg font-bold text-yellow-500">{gameData.rating.toFixed(1)}/5.0</span>
+                    </div>
+
+                    {/* Game Details - Better spacing */}
+                    <div className="space-y-2">
+                        <div className="flex items-center">
+                            <Clock className="mr-3 text-yellow-500" size={18} />
+                            <span className="text-sm sm:text-base text-gray-300">{gameData.playTime}</span>
+                        </div>
+
+                        <div className="flex items-center">
+                            <Users className="mr-3 text-yellow-500" size={18} />
+                            <span className="text-sm sm:text-base text-gray-300">{gameData.players}</span>
+                        </div>
+
+                        <div className="flex items-center">
+                            <Trophy className="mr-3 text-yellow-500" size={18} />
+                            <span className="text-sm sm:text-base text-gray-300">Difficulty: {gameData.difficulty}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>

@@ -15,9 +15,9 @@ const Header = () => {
   const headerItems = [
     { name: 'Discover', path: '/home' },
     { name: 'Library', path: '/library' },
-    { name: 'New', path: '/home#new', sectionId: 'new' },
+    { name: 'Games', path: '/home#new', sectionId: 'new' },
     { name: 'Categories', path: '/category' },
-    { name: 'News', path: '/news' }
+    
   ];
 
   const handleSearch = (e) => {

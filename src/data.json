@@ -5,7 +5,11 @@
         "genres": ["Multiplayer", "Action", "Open World"],
         "pics": ["/images/GTA1.jpg","/images/GTA2.jpg","/images/GTA3.jpg","/images/GTA4.jpg","/images/GTA5.jpg"],
         "vids": [],
-        "ratings": 4.6,
+        "price":4000,
+        "ratings":4.5,
+        "playtime":20,
+        "players":100856,
+        "difficulty": "high",
         "description": "Grand Theft Auto V Enhanced: Welcome to Los Santos..."
       },
       {
@@ -14,7 +18,11 @@
         "genres": ["Racing", "Sports"],
         "pics": ["/images/EA1.jpg","/images/EA2.jpg","/images/EA3.jpg","/images/EA4.jpg","/images/EA5.png"],
         "vids": [],
-        "ratings": null,
+        "price":4000,
+        "ratings": 4.5,
+        "playtime":20,
+        "players":100856,
+        "difficulty": "high",
         "description": "Build the car of your dreams in our biggest rally game ever..."
       },
       {
@@ -23,7 +31,11 @@
         "genres": ["Sports", "Football"],
         "pics": ["/images/EAS1.jpg","/images/EAS2.jpg","/images/EAS3.png","/images/EAS4.png","/images/EAS5.jpg"],
         "vids": [],
-        "ratings": null,
+        "price":4000,
+        "ratings":  4.5,
+        "playtime":20,
+        "players":100856,
+        "difficulty": "high",
         "description": "EA SPORTS FC 25 gives you more ways to win for the club..."
       },
       {
@@ -32,7 +44,11 @@
         "genres": ["Sports", "Fantasy"],
         "pics": ["/images/Potter1.png","/images/Potter2.jpg","/images/Potter3.jpg","/images/Potter4.jpg","/images/Potter5.png"],
         "vids": [],
-        "ratings": null,
+        "price":4000,
+        "ratings":  4.5,
+        "playtime":20,
+        "players":100856,
+        "difficulty": "high",
         "description": "Your next chapter takes flight! Immerse yourself in the enchanting world of Quidditch..."
       },
       {
@@ -41,16 +57,24 @@
         "genres": ["Action", "Shooter"],
         "pics": ["/images/DOOM1.jpg","/images/DOOM2.png","/images/DOOM3.jpg","/images/DOOM4.jpg","/images/DOOM5.jpg"],
         "vids": [],
-        "ratings": null,
+        "price":4000,
+        "ratings":  4.5,
+        "playtime":20,
+        "players":100856,
+        "difficulty": "high",
         "description": "Hell’s armies have invaded Earth. Become the Slayer in an epic single-player campaign..."
       },
       {
         "id": "game6",
         "title": "Innsmouth 22",
         "genres": ["Adventure", "Visual Novel"],
-        "pics": ["/images/INNS.png1","/images/INNS2.png","/images/INNS3.png","/images/INNS4.png","/images/INNS5.png"],
+        "pics": ["/images/INNS1.png","/images/INNS2.png","/images/INNS3.png","/images/INNS4.png","/images/INNS5.png"],
         "vids": [],
-        "ratings": null,
+        "price":4000,
+        "ratings":  4.5,
+        "playtime":20,
+        "players":100856,
+        "difficulty": "high",
         "description": "In this visual novel, the main character, Lorenzo Righi, is invited to a meeting of History Scholars..."
       },
       {
@@ -59,7 +83,11 @@
         "genres": ["Action RPG", "Mythology"],
         "pics": ["/images/Myth1.jpg","/images/Myth2.jpg","/images/Myth3.jpg","/images/Myth4.jpg","/images/Myth5.jpg"],
         "vids": [],
-        "ratings": null,
+        "price":4000,
+        "ratings":  4.5,
+        "playtime":20,
+        "players":100856,
+        "difficulty": "high",
         "description": "Black Myth: Wukong is an action RPG rooted in Chinese mythology..."
       },
       {
@@ -68,7 +96,11 @@
         "genres": ["Action", "Open World", "Samurai"],
         "pics": ["/images/Ghost1.jpg","/images/Ghost2.jpg","/images/Ghost3.jpg","/images/Ghost4.jpg","/images/Ghost5.jpg"],
         "vids": [],
-        "ratings": null,
+        "price":4000,
+        "ratings":  4.5,
+        "playtime":20,
+        "players":100856,
+        "difficulty": "high",
         "description": "A storm is coming. Venture into the complete Ghost of Tsushima DIRECTOR’S CUT on PC..."
       },
       {
@@ -77,7 +109,11 @@
         "genres": ["Adventure", "Mystery"],
         "pics": ["/images/Nancy1.jpg","/images/Nancy2.jpg","/images/Nancy3.jpg","/images/Nancy4.jpg","/images/Nancy5.jpg"],
         "vids": [],
-        "ratings": null,
+        "price":4000,
+        "ratings":  4.5,
+        "playtime":20,
+        "players":100856,
+        "difficulty": "high",
         "description": "A thrilling blend of adventure, mystery, and history! Play as Nancy Drew to uncover the truth..."
       },
       {
@@ -86,7 +122,11 @@
         "genres": ["Action", "Superhero"],
         "pics": ["/images/Spider1.jpg","/images/Spider2.jpg","/images/Spider3.jpg","/images/Spider4.jpg","/images/Spider5.jpg"],
         "vids": [],
-        "ratings": null,
+        "price":4000,
+        "ratings":  4.5,
+        "playtime":20,
+        "players":100856,
+        "difficulty": "high",
         "description": "Spider-Sense tingling… Mask-up for more thrilling web-slinging heroics..."
       },
       {
@@ -95,7 +135,11 @@
         "genres": ["Action RPG", "Open World", "Stealth"],
         "pics": ["/images/Shadow1.jpg","/images/Shadow2.jpg","/images/Shadow3.png","/images/Shadow4.png"],
         "vids": [],
-        "ratings": null,
+        "price":4000,
+        "ratings":  4.5,
+        "playtime":20,
+        "players":100856,
+        "difficulty": "high",
         "description": "ENTER FEUDAL JAPAN - Explore the captivating open world of feudal Japan..."
       }
     ]
