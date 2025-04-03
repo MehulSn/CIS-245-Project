@@ -1,23 +1,57 @@
 import React, { useState, useEffect } from 'react';
+import Marvel1 from './assets/marvel1.jpg'
+import Marvel from './assets/Marvel.mp4'
+import Harry1 from './assets/harry1.png'
+import Harry from './assets/Harry_Potter.mp4'
+import Wukong1 from './assets/Wukong1.jpg'
+import Wukong from './assets/Wukong.mp4'
+import Creed1 from './assets/Creed1.png'
+import Creed from './assets/Creed.mp4'
+import Inn1 from './assets/Inn1.png'
+import Inn from './assets/Inn.mp4'
 
-const products = [
-  {
-    id: 'assassins-creed',
-    name: "Assassin's Creed Shadows",
-    description: "Become a lethal shinobi and powerful legendary samurai as you explore a beautiful open world in a time of chaos.",
+ const products = [
+    {
+      id: 'assassins-creed',
+      name: "Assassin's Creed Shadows",
+      description: "ENTER FEUDAL JAPAN - Explore the captivating open world of feudal Japan...",
     price: '₹4,999',
-    videoUrl: '/path/to/assassins-creed-video.mp4',
-    coverImage: '/path/to/assassins-creed-cover.jpg'
-  },
-  {
-    id: 'another-game',
-    name: 'Another Game Title',
-    description: 'Game description goes here with a bit more text to ensure consistent layout and prevent any unexpected shifts.',
-    price: '₹3,999',
-    videoUrl: '/path/to/another-game-video.mp4',
-    coverImage: '/path/to/another-game-cover.jpg'
-  }
-];
+      videoUrl: Creed,
+      coverImage: Creed1
+    },
+    {
+      id: 'another-game',
+      name: 'Harry Potter: Quidditch Champions',
+      description: "Your next chapter takes flight! Immerse yourself in the enchanting world of Quidditch...",
+    price: '₹4,999',
+      videoUrl: Harry,
+      coverImage: Harry1
+    },
+    {
+      id: 'third-game',
+      name: 'Innsmouth 22',
+      description: "In this visual novel, the main character, Lorenzo Righi, is invited to a meeting of History Scholars...",
+    price: '₹4,999',
+      videoUrl: Inn,
+      coverImage: Inn1
+    },
+    {
+      id: 'fourth-game',
+      name: 'Black Myth: Wukong',
+      description: "Black Myth: Wukong is an action RPG rooted in Chinese mythology...",
+    price: '₹4,999',
+      videoUrl: Wukong,
+      coverImage: Wukong1
+    },
+    {
+      id: 'fifth-game',
+      name: 'Marvel’s Spider-Man 2',
+      description: "Spider-Sense tingling… Mask-up for more thrilling web-slinging heroics...",
+    price: '₹4,999',
+      videoUrl: Marvel,
+      coverImage: Marvel1
+    }
+  ];
 
 const CarouselwithText = () => {
   const [currentProductIndex, setCurrentProductIndex] = useState(0);

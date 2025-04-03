@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Search } from 'lucide-react';
+import Epics from './assets/Epic.png'
 
 const Header = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -32,7 +33,7 @@ const Header = () => {
       {/* Logo */}
       <Link to="/" className="flex items-center">
         <img 
-          src="/api/placeholder/150/50" 
+          src={Epics}
           alt="Logo" 
           className="h-10 w-auto object-contain transition-transform duration-300 hover:scale-105"
         />

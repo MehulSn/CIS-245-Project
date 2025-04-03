@@ -4,13 +4,12 @@ import './styles.css';
 
 const LibraryPage = () => {
     const filterSections = [
-        { id: 'events', label: 'Events' },
-        { id: 'price', label: 'Price' },
-        { id: 'genre', label: 'Genre' },
-        { id: 'features', label: 'Features' },
-        { id: 'types', label: 'Types' },
-        { id: 'platform', label: 'Platform' },
-        { id: 'subscriptions', label: 'Subscriptions' }
+        { id: 'Multiplayer', label: 'Multiplayer' },
+        { id: 'Adventure', label: 'Adventure' },
+        { id: 'Action', label: 'Action' },
+        { id: 'Fantasy', label: 'Fantasy' },
+        { id: 'Sports', label: 'Sports' },
+        { id: 'Open World', label: 'Open World' }
     ];
 
     const gameData = {
