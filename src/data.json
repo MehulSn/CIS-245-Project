@@ -51,7 +51,35 @@
         "playtime":20,
         "players":100856,
         "difficulty": "high",
-        "description": "Build the car of your dreams in our biggest rally game ever..."
+        "description": "Build the car of your dreams in our biggest rally game ever...",
+        "comments": [{
+            "id": 1,
+            "name": "Sarah Johnson",
+            "rating": 5,
+            "date": "March 25, 2025",
+            "comment": "Absolutely loved this product! It exceeded all my expectations and the quality is outstanding. Would definitely recommend to anyone looking for a reliable solution."
+        },
+        {
+            "id": 2,
+            "name": "Michael Chen",
+            "rating": 4,
+            "date": "March 20, 2025",
+            "comment": "Great value for money. The product works as advertised and customer service was very helpful when I had questions about setup."
+        },
+        {
+            "id": 3,
+            "name": "Jessica Williams",
+            "rating": 3.5,
+            "date": "March 15, 2025",
+            "comment": "Decent product with some room for improvement. It does what it's supposed to do, but the interface could be more intuitive."
+        },
+        {
+            "id": 4,
+            "name": "David Rodriguez",
+            "rating": 4.5,
+            "date": "March 10, 2025",
+            "comment": "Very impressed with how quickly this was delivered and how easy it was to set up. The only small issue I had was with the documentation, which could be clearer in some sections."
+        }]
       },
       {
         "id": "game3",
@@ -64,7 +92,35 @@
         "playtime":20,
         "players":100856,
         "difficulty": "high",
-        "description": "EA SPORTS FC 25 gives you more ways to win for the club..."
+        "description": "EA SPORTS FC 25 gives you more ways to win for the club...",
+        "comments": [{
+            "id": 1,
+            "name": "Sarah Johnson",
+            "rating": 5,
+            "date": "March 25, 2025",
+            "comment": "Absolutely loved this product! It exceeded all my expectations and the quality is outstanding. Would definitely recommend to anyone looking for a reliable solution."
+        },
+        {
+            "id": 2,
+            "name": "Michael Chen",
+            "rating": 4,
+            "date": "March 20, 2025",
+            "comment": "Great value for money. The product works as advertised and customer service was very helpful when I had questions about setup."
+        },
+        {
+            "id": 3,
+            "name": "Jessica Williams",
+            "rating": 3.5,
+            "date": "March 15, 2025",
+            "comment": "Decent product with some room for improvement. It does what it's supposed to do, but the interface could be more intuitive."
+        },
+        {
+            "id": 4,
+            "name": "David Rodriguez",
+            "rating": 4.5,
+            "date": "March 10, 2025",
+            "comment": "Very impressed with how quickly this was delivered and how easy it was to set up. The only small issue I had was with the documentation, which could be clearer in some sections."
+        }]
       },
       {
         "id": "game4",
@@ -77,7 +133,35 @@
         "playtime":20,
         "players":100856,
         "difficulty": "high",
-        "description": "Your next chapter takes flight! Immerse yourself in the enchanting world of Quidditch..."
+        "description": "Your next chapter takes flight! Immerse yourself in the enchanting world of Quidditch...",
+        "comments": [{
+            "id": 1,
+            "name": "Sarah Johnson",
+            "rating": 5,
+            "date": "March 25, 2025",
+            "comment": "Absolutely loved this product! It exceeded all my expectations and the quality is outstanding. Would definitely recommend to anyone looking for a reliable solution."
+        },
+        {
+            "id": 2,
+            "name": "Michael Chen",
+            "rating": 4,
+            "date": "March 20, 2025",
+            "comment": "Great value for money. The product works as advertised and customer service was very helpful when I had questions about setup."
+        },
+        {
+            "id": 3,
+            "name": "Jessica Williams",
+            "rating": 3.5,
+            "date": "March 15, 2025",
+            "comment": "Decent product with some room for improvement. It does what it's supposed to do, but the interface could be more intuitive."
+        },
+        {
+            "id": 4,
+            "name": "David Rodriguez",
+            "rating": 4.5,
+            "date": "March 10, 2025",
+            "comment": "Very impressed with how quickly this was delivered and how easy it was to set up. The only small issue I had was with the documentation, which could be clearer in some sections."
+        }]
       },
       {
         "id": "game5",
@@ -90,7 +174,35 @@
         "playtime":20,
         "players":100856,
         "difficulty": "high",
-        "description": "Hell’s armies have invaded Earth. Become the Slayer in an epic single-player campaign..."
+        "description": "Hell’s armies have invaded Earth. Become the Slayer in an epic single-player campaign...",
+        "comments": [{
+            "id": 1,
+            "name": "Sarah Johnson",
+            "rating": 5,
+            "date": "March 25, 2025",
+            "comment": "Absolutely loved this product! It exceeded all my expectations and the quality is outstanding. Would definitely recommend to anyone looking for a reliable solution."
+        },
+        {
+            "id": 2,
+            "name": "Michael Chen",
+            "rating": 4,
+            "date": "March 20, 2025",
+            "comment": "Great value for money. The product works as advertised and customer service was very helpful when I had questions about setup."
+        },
+        {
+            "id": 3,
+            "name": "Jessica Williams",
+            "rating": 3.5,
+            "date": "March 15, 2025",
+            "comment": "Decent product with some room for improvement. It does what it's supposed to do, but the interface could be more intuitive."
+        },
+        {
+            "id": 4,
+            "name": "David Rodriguez",
+            "rating": 4.5,
+            "date": "March 10, 2025",
+            "comment": "Very impressed with how quickly this was delivered and how easy it was to set up. The only small issue I had was with the documentation, which could be clearer in some sections."
+        }]
       },
       {
         "id": "game6",
@@ -103,7 +215,35 @@
         "playtime":20,
         "players":100856,
         "difficulty": "high",
-        "description": "In this visual novel, the main character, Lorenzo Righi, is invited to a meeting of History Scholars..."
+        "description": "In this visual novel, the main character, Lorenzo Righi, is invited to a meeting of History Scholars...",
+        "comments": [{
+            "id": 1,
+            "name": "Sarah Johnson",
+            "rating": 5,
+            "date": "March 25, 2025",
+            "comment": "Absolutely loved this product! It exceeded all my expectations and the quality is outstanding. Would definitely recommend to anyone looking for a reliable solution."
+        },
+        {
+            "id": 2,
+            "name": "Michael Chen",
+            "rating": 4,
+            "date": "March 20, 2025",
+            "comment": "Great value for money. The product works as advertised and customer service was very helpful when I had questions about setup."
+        },
+        {
+            "id": 3,
+            "name": "Jessica Williams",
+            "rating": 3.5,
+            "date": "March 15, 2025",
+            "comment": "Decent product with some room for improvement. It does what it's supposed to do, but the interface could be more intuitive."
+        },
+        {
+            "id": 4,
+            "name": "David Rodriguez",
+            "rating": 4.5,
+            "date": "March 10, 2025",
+            "comment": "Very impressed with how quickly this was delivered and how easy it was to set up. The only small issue I had was with the documentation, which could be clearer in some sections."
+        }]
       },
       {
         "id": "game7",
@@ -116,7 +256,35 @@
         "playtime":20,
         "players":100856,
         "difficulty": "high",
-        "description": "Black Myth: Wukong is an action RPG rooted in Chinese mythology..."
+        "description": "Black Myth: Wukong is an action RPG rooted in Chinese mythology...",
+        "comments": [{
+            "id": 1,
+            "name": "Sarah Johnson",
+            "rating": 5,
+            "date": "March 25, 2025",
+            "comment": "Absolutely loved this product! It exceeded all my expectations and the quality is outstanding. Would definitely recommend to anyone looking for a reliable solution."
+        },
+        {
+            "id": 2,
+            "name": "Michael Chen",
+            "rating": 4,
+            "date": "March 20, 2025",
+            "comment": "Great value for money. The product works as advertised and customer service was very helpful when I had questions about setup."
+        },
+        {
+            "id": 3,
+            "name": "Jessica Williams",
+            "rating": 3.5,
+            "date": "March 15, 2025",
+            "comment": "Decent product with some room for improvement. It does what it's supposed to do, but the interface could be more intuitive."
+        },
+        {
+            "id": 4,
+            "name": "David Rodriguez",
+            "rating": 4.5,
+            "date": "March 10, 2025",
+            "comment": "Very impressed with how quickly this was delivered and how easy it was to set up. The only small issue I had was with the documentation, which could be clearer in some sections."
+        }]
       },
       {
         "id": "game8",
@@ -129,7 +297,35 @@
         "playtime":20,
         "players":100856,
         "difficulty": "high",
-        "description": "A storm is coming. Venture into the complete Ghost of Tsushima DIRECTOR’S CUT on PC..."
+        "description": "A storm is coming. Venture into the complete Ghost of Tsushima DIRECTOR’S CUT on PC...",
+        "comments": [{
+            "id": 1,
+            "name": "Sarah Johnson",
+            "rating": 5,
+            "date": "March 25, 2025",
+            "comment": "Absolutely loved this product! It exceeded all my expectations and the quality is outstanding. Would definitely recommend to anyone looking for a reliable solution."
+        },
+        {
+            "id": 2,
+            "name": "Michael Chen",
+            "rating": 4,
+            "date": "March 20, 2025",
+            "comment": "Great value for money. The product works as advertised and customer service was very helpful when I had questions about setup."
+        },
+        {
+            "id": 3,
+            "name": "Jessica Williams",
+            "rating": 3.5,
+            "date": "March 15, 2025",
+            "comment": "Decent product with some room for improvement. It does what it's supposed to do, but the interface could be more intuitive."
+        },
+        {
+            "id": 4,
+            "name": "David Rodriguez",
+            "rating": 4.5,
+            "date": "March 10, 2025",
+            "comment": "Very impressed with how quickly this was delivered and how easy it was to set up. The only small issue I had was with the documentation, which could be clearer in some sections."
+        }]
       },
       {
         "id": "game9",
@@ -142,7 +338,35 @@
         "playtime":20,
         "players":100856,
         "difficulty": "high",
-        "description": "A thrilling blend of adventure, mystery, and history! Play as Nancy Drew to uncover the truth..."
+        "description": "A thrilling blend of adventure, mystery, and history! Play as Nancy Drew to uncover the truth...",
+        "comments": [{
+            "id": 1,
+            "name": "Sarah Johnson",
+            "rating": 5,
+            "date": "March 25, 2025",
+            "comment": "Absolutely loved this product! It exceeded all my expectations and the quality is outstanding. Would definitely recommend to anyone looking for a reliable solution."
+        },
+        {
+            "id": 2,
+            "name": "Michael Chen",
+            "rating": 4,
+            "date": "March 20, 2025",
+            "comment": "Great value for money. The product works as advertised and customer service was very helpful when I had questions about setup."
+        },
+        {
+            "id": 3,
+            "name": "Jessica Williams",
+            "rating": 3.5,
+            "date": "March 15, 2025",
+            "comment": "Decent product with some room for improvement. It does what it's supposed to do, but the interface could be more intuitive."
+        },
+        {
+            "id": 4,
+            "name": "David Rodriguez",
+            "rating": 4.5,
+            "date": "March 10, 2025",
+            "comment": "Very impressed with how quickly this was delivered and how easy it was to set up. The only small issue I had was with the documentation, which could be clearer in some sections."
+        }]
       },
       {
         "id": "game10",
@@ -155,7 +379,35 @@
         "playtime":20,
         "players":100856,
         "difficulty": "high",
-        "description": "Spider-Sense tingling… Mask-up for more thrilling web-slinging heroics..."
+        "description": "Spider-Sense tingling… Mask-up for more thrilling web-slinging heroics...",
+        "comments": [{
+            "id": 1,
+            "name": "Sarah Johnson",
+            "rating": 5,
+            "date": "March 25, 2025",
+            "comment": "Absolutely loved this product! It exceeded all my expectations and the quality is outstanding. Would definitely recommend to anyone looking for a reliable solution."
+        },
+        {
+            "id": 2,
+            "name": "Michael Chen",
+            "rating": 4,
+            "date": "March 20, 2025",
+            "comment": "Great value for money. The product works as advertised and customer service was very helpful when I had questions about setup."
+        },
+        {
+            "id": 3,
+            "name": "Jessica Williams",
+            "rating": 3.5,
+            "date": "March 15, 2025",
+            "comment": "Decent product with some room for improvement. It does what it's supposed to do, but the interface could be more intuitive."
+        },
+        {
+            "id": 4,
+            "name": "David Rodriguez",
+            "rating": 4.5,
+            "date": "March 10, 2025",
+            "comment": "Very impressed with how quickly this was delivered and how easy it was to set up. The only small issue I had was with the documentation, which could be clearer in some sections."
+        }]
       },
       {
         "id": "game11",
@@ -168,7 +420,35 @@
         "playtime":20,
         "players":100856,
         "difficulty": "high",
-        "description": "ENTER FEUDAL JAPAN - Explore the captivating open world of feudal Japan..."
+        "description": "ENTER FEUDAL JAPAN - Explore the captivating open world of feudal Japan...",
+        "comments": [{
+            "id": 1,
+            "name": "Sarah Johnson",
+            "rating": 5,
+            "date": "March 25, 2025",
+            "comment": "Absolutely loved this product! It exceeded all my expectations and the quality is outstanding. Would definitely recommend to anyone looking for a reliable solution."
+        },
+        {
+            "id": 2,
+            "name": "Michael Chen",
+            "rating": 4,
+            "date": "March 20, 2025",
+            "comment": "Great value for money. The product works as advertised and customer service was very helpful when I had questions about setup."
+        },
+        {
+            "id": 3,
+            "name": "Jessica Williams",
+            "rating": 3.5,
+            "date": "March 15, 2025",
+            "comment": "Decent product with some room for improvement. It does what it's supposed to do, but the interface could be more intuitive."
+        },
+        {
+            "id": 4,
+            "name": "David Rodriguez",
+            "rating": 4.5,
+            "date": "March 10, 2025",
+            "comment": "Very impressed with how quickly this was delivered and how easy it was to set up. The only small issue I had was with the documentation, which could be clearer in some sections."
+        }]
       }
     ]
   
