@@ -5,31 +5,35 @@ import unrealvid from './assets/UNREAL_VID.mp4'
 import MetaHuman from './assets/MetaHuman.mp4';
 import RealityScan from './assets/RealityScan.mp4';
 import TwinMotion from './assets/TwinMotion.mp4';
+import Unreal1 from './assets/Unreal1.jpg'
+import MetaHuman1 from './assets/Metahumna1.jpg'
+import TwinMotion1 from './assets/TwinMotion1.jpg';
+import RealityScan1 from './assets/RealityScan1.jpg';
 
 const products = [
   {
     id: 'unreal-engine',
     name: "Unreal Engine",
     videoUrl: unrealvid,
-    coverImage: '/path/to/assassins-creed-cover.jpg'
+    coverImage: Unreal1
   },
   {
     id: 'metahuman',
     name: 'MetaHuman',
     videoUrl: MetaHuman,
-    coverImage: '/path/to/another-game-cover.jpg'
+    coverImage: MetaHuman1
   },
   {
     id: 'twinmotion',
     name: 'Twinmotion',
     videoUrl: TwinMotion,
-    coverImage: '/path/to/third-game-cover.jpg'
+    coverImage: TwinMotion1
   },
   {
     id: 'realityscan',
     name: 'RealityScan',
     videoUrl: RealityScan,
-    coverImage: '/path/to/fourth-game-cover.jpg'
+    coverImage: RealityScan1
   }
 ];
 
