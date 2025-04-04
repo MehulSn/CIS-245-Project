@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import CarouselwithText from './CarousalwithText';
 import { Star, Clock, Users, Trophy } from "lucide-react";
@@ -18,7 +18,16 @@ const HomePage = () => {
 
   const handleGameClick = (game) => {
     setSelectedGame(game);
+    setCurrentImage(0);
   };
+
+  const [mainImage, setMainImage] = useState(selectedGame?.pics[0]);
+
+  useEffect(() => {
+    if (selectedGame) {
+      setMainImage(selectedGame.pics[0]);
+    }
+  }, [selectedGame]);
 
   const renderStars = (rating) => {
     const stars = [];
@@ -77,58 +86,87 @@ const HomePage = () => {
       </div>
 
       {/* Game Details Section */}
-      {selectedGame && (
-        <div className="w-full h-full bg-black p-4 overflow-y-auto">
-          <div className="w-full max-w-full mx-auto bg-black p-4 rounded-lg shadow-lg">
-            <h1 className="text-2xl font-bold mb-4 text-white">{selectedGame.title}</h1>
-            <img src={selectedGame.pics[0]} alt={selectedGame.title} className="w-full h-56 object-cover mb-4" />
-            <div className="flex mb-4 space-x-2">
-              {selectedGame.pics.slice(0, 5).map((img, index) => (
-                <img key={index} src={img} alt={`Thumbnail ${index}`} className="w-1/5 h-16 object-cover rounded-md" />
-              ))}
-            </div>
-            <div className="flex space-x-2 mb-4">
-              {selectedGame.genres.slice(0, 5).map((tag, index) => (
-                <div key={index} className="bg-gray-800 text-white px-3 py-1 rounded-md text-xs">{tag}</div>
-              ))}
-            </div>
-            <div className="mb-4">
-              <h2 className="text-xl font-bold mb-2 text-white">Game Description</h2>
-              <p className="text-gray-300 text-sm">{selectedGame.description}</p>
-            </div>
-            {/* Ratings and Info - Improved spacing and alignment */}
-            <div className="bg-black p-3 sm:p-4 rounded-lg">
-              <h2 className="text-lg sm:text-xl font-bold mb-3 text-white">Ratings & Details</h2>
-
-              {/* Star Rating Section - Fixed alignment */}
-              <div className="flex items-center mb-3">
-                <div className="flex mr-2">
-                  {renderStars(selectedGame.ratings)}
-                </div>
-                <span className="text-base sm:text-lg font-bold text-yellow-500">{selectedGame.ratings}/5.0</span>
+      {
+        selectedGame && (
+          <div className="w-full h-full bg-black p-4 overflow-y-auto">
+            <div className="w-full max-w-full mx-auto bg-black p-4 rounded-lg shadow-lg">
+              <h1 className="text-2xl font-bold mb-4 text-white">{selectedGame.title}</h1>
+    
+              {/* Main Image */}
+              <img
+                src={mainImage}
+                alt={selectedGame.title}
+                className="w-full h-56 object-cover mb-4 rounded-md"
+              />
+    
+              {/* Thumbnails */}
+              <div className="flex mb-4 space-x-2">
+                {selectedGame.pics.slice(0, 5).map((img, index) => (
+                  <img
+                    key={index}
+                    src={img}
+                    alt={`Thumbnail ${index}`}
+                    className="w-1/5 h-16 object-cover rounded-md cursor-pointer hover:opacity-80"
+                    onClick={() => setMainImage(img)}
+                  />
+                ))}
               </div>
-
-              {/* Game Details - Better spacing */}
-              <div className="space-y-2">
-                <div className="flex items-center">
-                  <Clock className="mr-3 text-yellow-500" size={18} />
-                  <span className="text-sm sm:text-base text-gray-300">{selectedGame.playtime} hours</span>
+    
+              {/* Genres */}
+              <div className="flex space-x-2 mb-4">
+                {selectedGame.genres.slice(0, 5).map((tag, index) => (
+                  <div
+                    key={index}
+                    className="bg-gray-800 text-white px-3 py-1 rounded-md text-xs"
+                  >
+                    {tag}
+                  </div>
+                ))}
+              </div>
+    
+              {/* Description */}
+              <div className="mb-4">
+                <h2 className="text-xl font-bold mb-2 text-white">Game Description</h2>
+                <p className="text-gray-300 text-sm">{selectedGame.description}</p>
+              </div>
+    
+              {/* Ratings and Details */}
+              <div className="bg-black p-3 sm:p-4 rounded-lg">
+                <h2 className="text-lg sm:text-xl font-bold mb-3 text-white">Ratings & Details</h2>
+    
+                <div className="flex items-center mb-3">
+                  <div className="flex mr-2">{renderStars(selectedGame.ratings)}</div>
+                  <span className="text-base sm:text-lg font-bold text-yellow-500">
+                    {selectedGame.ratings}/5.0
+                  </span>
                 </div>
-
-                <div className="flex items-center">
-                  <Users className="mr-3 text-yellow-500" size={18} />
-                  <span className="text-sm sm:text-base text-gray-300">{selectedGame.players} players</span>
-                </div>
-
-                <div className="flex items-center">
-                  <Trophy className="mr-3 text-yellow-500" size={18} />
-                  <span className="text-sm sm:text-base text-gray-300">Difficulty: {selectedGame.difficulty}</span>
+    
+                <div className="space-y-2">
+                  <div className="flex items-center">
+                    <Clock className="mr-3 text-yellow-500" size={18} />
+                    <span className="text-sm sm:text-base text-gray-300">
+                      {selectedGame.playtime} hours
+                    </span>
+                  </div>
+    
+                  <div className="flex items-center">
+                    <Users className="mr-3 text-yellow-500" size={18} />
+                    <span className="text-sm sm:text-base text-gray-300">
+                      {selectedGame.players} players
+                    </span>
+                  </div>
+    
+                  <div className="flex items-center">
+                    <Trophy className="mr-3 text-yellow-500" size={18} />
+                    <span className="text-sm sm:text-base text-gray-300">
+                      Difficulty: {selectedGame.difficulty}
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      )}
+          </div>)
+      }
     </div>
   );
 };

@@ -59,9 +59,9 @@ const GamePage = () => {
 
                     <div className="mb-4 bg-black rounded-lg overflow-hidden">
                         <img
-                            src={game.pics[0]}
+                            src={game.pics[currentImage]}
                             alt={`${game.title} screenshot ${currentImage + 1}`}
-                            className="w-full h-64 object-cover"
+                            className="w-full h-full object-cover"
                         />
                     </div>
 
@@ -75,7 +75,7 @@ const GamePage = () => {
                                 <img
                                     src={img}
                                     alt={`Thumbnail ${index + 1}`}
-                                    className="w-full h-16 object-cover"
+                                    className="w-full h-full object-cover"
                                 />
                             </button>
                         ))}
