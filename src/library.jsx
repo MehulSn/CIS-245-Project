@@ -141,8 +141,8 @@ const LibraryPage = () => {
                 </div>
 
                 <div className="details">
-                    <p><Clock size={14} className="icons" /> {selectedGame.playtime}</p>
-                    <p><Users size={14} className="icons" /> {selectedGame.players}</p>
+                    <p><Clock size={14} className="icons" /> {selectedGame.playtime}+ hours</p>
+                    <p><Users size={14} className="icons" /> {selectedGame.players} players</p>
                     <p><Trophy size={14} className="icons" /> Difficulty: {selectedGame.difficulty}</p>
                 </div>
 
