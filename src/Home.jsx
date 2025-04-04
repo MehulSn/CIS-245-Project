@@ -37,6 +37,8 @@ const HomePage = () => {
     return stars;
   };
   
+
+  
   return (
     <div className={`w-full h-screen min-h-screen overflow-hidden grid ${selectedGame ? "grid-cols-[15%_60%_25%]" : "grid-cols-[15%_85%]"}`}>
       {/* Sidebar Filters */}
@@ -45,7 +47,7 @@ const HomePage = () => {
         {FilterItems.map((filter, index) => (
           <Link
             key={index}
-            to={`/games?filter=${filter.name}`}
+            to={`/category#${filter.name}`}
             className="block border-b border-gray-700 py-3 cursor-pointer hover:bg-gray-800 text-white"
           >
             {filter.name}
