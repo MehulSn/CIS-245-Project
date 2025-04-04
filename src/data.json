@@ -10,7 +10,35 @@
         "playtime":20,
         "players":100856,
         "difficulty": "high",
-        "description": "Grand Theft Auto V Enhanced: Welcome to Los Santos..."
+        "description": "Grand Theft Auto V Enhanced: Welcome to Los Santos...",
+        "comments": [{
+            "id": 1,
+            "name": "Sarah Johnson",
+            "rating": 5,
+            "date": "March 25, 2025",
+            "comment": "Absolutely loved this product! It exceeded all my expectations and the quality is outstanding. Would definitely recommend to anyone looking for a reliable solution."
+        },
+        {
+            "id": 2,
+            "name": "Michael Chen",
+            "rating": 4,
+            "date": "March 20, 2025",
+            "comment": "Great value for money. The product works as advertised and customer service was very helpful when I had questions about setup."
+        },
+        {
+            "id": 3,
+            "name": "Jessica Williams",
+            "rating": 3.5,
+            "date": "March 15, 2025",
+            "comment": "Decent product with some room for improvement. It does what it's supposed to do, but the interface could be more intuitive."
+        },
+        {
+            "id": 4,
+            "name": "David Rodriguez",
+            "rating": 4.5,
+            "date": "March 10, 2025",
+            "comment": "Very impressed with how quickly this was delivered and how easy it was to set up. The only small issue I had was with the documentation, which could be clearer in some sections."
+        }]
       },
       {
         "id": "game2",

@@ -1,15 +1,28 @@
 import React, { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Search } from 'lucide-react';
-import Epics from './assets/Epic.png'
+import Epics from './assets/Epic.png';
 
 const Header = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const navigate = useNavigate();
-  const location = useLocation();  // Get current route
+  const location = useLocation(); // Get current route
 
   const scrollToSection = (id) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleNavigation = (item) => {
+    if (item.sectionId) {
+      if (location.pathname !== '/home') {
+        navigate('/home'); // Navigate first
+        setTimeout(() => scrollToSection(item.sectionId), 300); // Delay scrolling
+      } else {
+        scrollToSection(item.sectionId); // Scroll immediately if already on home
+      }
+    } else {
+      navigate(item.path);
+    }
   };
 
   const headerItems = [
@@ -17,13 +30,11 @@ const Header = () => {
     { name: 'Library', path: '/library' },
     { name: 'Games', path: '/home#new', sectionId: 'new' },
     { name: 'Categories', path: '/category' },
-    
   ];
 
   const handleSearch = (e) => {
     e.preventDefault();
     if (searchQuery.trim()) {
-      // navigate(/search?query=${encodeURIComponent(searchQuery)});
       navigate(`/search?query=${encodeURIComponent(searchQuery)}`);
     }
   };
@@ -42,25 +53,13 @@ const Header = () => {
       {/* Navigation Items */}
       <nav className="flex items-center space-x-6">
         {headerItems.map((item) => (
-          item.sectionId && location.pathname === '/home' ? (
-            // If already on /home, scroll instead of navigating
-            <button
-              key={item.name}
-              onClick={() => scrollToSection(item.sectionId)}
-              className="text-gray-300 transition-all duration-300 transform hover:scale-110 hover:text-white"
-            >
-              {item.name}
-            </button>
-          ) : (
-            // Normal Link navigation
-            <Link
-              key={item.name}
-              to={item.path}
-              className="text-gray-300 transition-all duration-300 transform hover:scale-110 hover:text-white"
-            >
-              {item.name}
-            </Link>
-          )
+          <button
+            key={item.name}
+            onClick={() => handleNavigation(item)}
+            className="text-gray-300 transition-all duration-300 transform hover:scale-110 hover:text-white"
+          >
+            {item.name}
+          </button>
         ))}
       </nav>
 

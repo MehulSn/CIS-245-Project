@@ -1,35 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import { Star, Clock, Users, Trophy, Tag } from "lucide-react";
+import { useNavigate } from 'react-router-dom';
+import { Star, Clock, Users, Trophy } from "lucide-react";
+import gamesData from './data.json';
 
 const GamePage = () => {
-    const gameData = {
-        title: "Cosmic Adventures",
-        description: "Embark on an epic journey through the stars in this action-packed adventure game. Explore mysterious planets, battle alien creatures, and uncover the secrets of the universe. With stunning graphics and an immersive storyline, Cosmic Adventures offers countless hours of gameplay for both casual and hardcore gamers.",
-        rating: 4.5,
-        playTime: "20+ hours",
-        players: "1-4 players",
-        difficulty: "Medium",
-        tags: ["Adventure", "Sci-Fi", "Action", "Multiplayer", "Strategy"]
-    };
+    const navigate = useNavigate();
+    const gameId = localStorage.getItem("gameid"); // ✅ Get ID from localStorage
 
-    // Sample images for the gallery
-    const images = [
-        "/api/placeholder/640/360",
-        "/api/placeholder/640/360",
-        "/api/placeholder/640/360",
-        "/api/placeholder/640/360",
-        "/api/placeholder/640/360"
-    ];
+    const [game, setGame] = useState(null);
 
-    // State to track which image is currently displayed
+    
     const [currentImage, setCurrentImage] = useState(0);
 
-    // Handle image thumbnail click
     const handleImageClick = (index) => {
         setCurrentImage(index);
     };
 
-    // Generate star rating display
     const renderStars = (rating) => {
         const stars = [];
         const fullStars = Math.floor(rating);
@@ -47,168 +33,120 @@ const GamePage = () => {
         return stars;
     };
 
-    const comments = [
-        {
-            id: 1,
-            name: "Sarah Johnson",
-            rating: 5,
-            date: "March 25, 2025",
-            comment: "Absolutely loved this product! It exceeded all my expectations and the quality is outstanding. Would definitely recommend to anyone looking for a reliable solution."
-        },
-        {
-            id: 2,
-            name: "Michael Chen",
-            rating: 4,
-            date: "March 20, 2025",
-            comment: "Great value for money. The product works as advertised and customer service was very helpful when I had questions about setup."
-        },
-        {
-            id: 3,
-            name: "Jessica Williams",
-            rating: 3.5,
-            date: "March 15, 2025",
-            comment: "Decent product with some room for improvement. It does what it's supposed to do, but the interface could be more intuitive."
-        },
-        {
-            id: 4,
-            name: "David Rodriguez",
-            rating: 4.5,
-            date: "March 10, 2025",
-            comment: "Very impressed with how quickly this was delivered and how easy it was to set up. The only small issue I had was with the documentation, which could be clearer in some sections."
+    useEffect(() => {
+        if (gameId) {
+            const selectedGame = gamesData.find(g => g.id.toString() === gameId);
+
+            setGame(selectedGame || null);
         }
-    ];
+    }, [gameId]);
+
+    if (!game) {
+        return (
+            <div className="text-white text-center mt-10">
+                Game not found or no game selected.
+            </div>
+        );
+    }
+
 
     return (
         <div className="flex w-full h-screen overflow-hidden">
-    {/* Left section - 75% width with proper overflow handling */}
-    <div className="w-3/4 bg-black p-4 overflow-auto">
-        <div className="w-full mx-auto bg-black p-2 sm:p-4 rounded-lg shadow-lg">
-            {/* Game Title */}
-            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 sm:mb-4 text-white">{gameData.title}</h1>
+            {/* Left section */}
+            <div className="w-3/4 bg-black p-4 overflow-auto">
+                <div className="w-full mx-auto bg-black p-4 rounded-lg shadow-lg">
+                    <h1 className="text-3xl font-bold mb-4 text-white">{game.title}</h1>
 
-            {/* Main Image Showcase */}
-            <div className="mb-2 sm:mb-4 bg-black rounded-lg overflow-hidden">
-                <img
-                    src={images[currentImage]}
-                    alt={`${gameData.title} screenshot ${currentImage + 1}`}
-                    className="w-full h-48 sm:h-56 md:h-64 object-cover"
-                />
-            </div>
-
-            {/* Thumbnail Gallery - Always 5 in one row */}
-            <div className="flex justify-between mb-3 sm:mb-6 space-x-1 sm:space-x-2">
-                {images.map((img, index) => (
-                    <button
-                        key={index}
-                        onClick={() => handleImageClick(index)}
-                        className={`w-1/5 rounded-md overflow-hidden border-2 ${currentImage === index ? 'border-purple-500' : 'border-black'}`}
-                    >
+                    <div className="mb-4 bg-black rounded-lg overflow-hidden">
                         <img
-                            src={img}
-                            alt={`Thumbnail ${index + 1}`}
-                            className="w-full h-8 sm:h-12 md:h-16 object-cover"
+                            src={game.pics[0]}
+                            alt={`${game.title} screenshot ${currentImage + 1}`}
+                            className="w-full h-64 object-cover"
                         />
-                    </button>
-                ))}
-            </div>
-
-            {/* Categories - Always 5 in one row */}
-            <div className="flex justify-between mb-3 sm:mb-6 space-x-1 sm:space-x-2">
-                {gameData.tags.slice(0, 5).map((tag, index) => (
-                    <div key={index} className="w-1/5 bg-black text-gray-200 p-1 sm:p-2 rounded-md text-center text-xs sm:text-sm truncate">
-                        {tag}
-                    </div>
-                ))}
-            </div>
-
-            {/* Game Description */}
-            <div className="bg-black p-2 sm:p-4 rounded-lg mb-3 sm:mb-6">
-                <h2 className="text-lg sm:text-xl font-bold mb-1 sm:mb-2 text-white">Game Description</h2>
-                <p className="text-gray-300 text-sm sm:text-base">{gameData.description}</p>
-            </div>
-
-            {/* Ratings and Info */}
-            <div className="bg-black p-2 sm:p-4 rounded-lg">
-                <h2 className="text-lg sm:text-xl font-bold mb-2 sm:mb-4 text-white">Ratings & Details</h2>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
-                    {/* Star Rating */}
-                    <div className="flex items-center">
-                        <div className="flex mr-2">
-                            {renderStars(gameData.rating)}
-                        </div>
-                        <span className="text-base sm:text-lg font-bold text-white">{gameData.rating.toFixed(1)}/5.0</span>
                     </div>
 
-                    {/* Game Details */}
-                    <div className="space-y-1 sm:space-y-2 text-sm sm:text-base text-gray-300">
-                        <div className="flex items-center">
-                            <Clock className="mr-2 text-purple-400" size={16} />
-                            <span>{gameData.playTime}</span>
-                        </div>
+                    <div className="flex justify-between mb-6 space-x-2">
+                        {game.pics.map((img, index) => (
+                            <button
+                                key={index}
+                                onClick={() => handleImageClick(index)}
+                                className={`w-1/5 rounded-md overflow-hidden border-2 ${currentImage === index ? 'border-purple-500' : 'border-black'}`}
+                            >
+                                <img
+                                    src={img}
+                                    alt={`Thumbnail ${index + 1}`}
+                                    className="w-full h-16 object-cover"
+                                />
+                            </button>
+                        ))}
+                    </div>
 
-                        <div className="flex items-center">
-                            <Users className="mr-2 text-green-400" size={16} />
-                            <span>{gameData.players}</span>
-                        </div>
+                    <div className="flex justify-between mb-6 space-x-2">
+                        {game.tags?.slice(0, 5).map((tag, index) => (
+                            <div key={index} className="w-1/5 bg-black text-gray-200 p-2 rounded-md text-center text-sm truncate">
+                                {tag}
+                            </div>
+                        ))}
+                    </div>
 
-                        <div className="flex items-center">
-                            <Trophy className="mr-2 text-yellow-400" size={16} />
-                            <span>Difficulty: {gameData.difficulty}</span>
+                    <div className="bg-black p-4 rounded-lg mb-6">
+                        <h2 className="text-xl font-bold mb-2 text-white">Game Description</h2>
+                        <p className="text-gray-300 text-base">{game.description}</p>
+                    </div>
+
+                    <div className="bg-black p-4 rounded-lg">
+                        <h2 className="text-xl font-bold mb-4 text-white">Ratings & Details</h2>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div className="flex items-center">
+                                <div className="flex mr-2">
+                                    {renderStars(game.rating)}
+                                </div>
+                                <span className="text-lg font-bold text-white">{game.ratings}/5.0</span>
+                            </div>
+
+                            <div className="space-y-2 text-base text-gray-300">
+                                <div className="flex items-center">
+                                    <Clock className="mr-2 text-purple-400" size={16} />
+                                    <span>{game.playTime}</span>
+                                </div>
+                                <div className="flex items-center">
+                                    <Users className="mr-2 text-green-400" size={16} />
+                                    <span>{game.players}</span>
+                                </div>
+                                <div className="flex items-center">
+                                    <Trophy className="mr-2 text-yellow-400" size={16} />
+                                    <span>Difficulty: {game.difficulty}</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
 
-    {/* Right section - 25% width with proper overflow handling */}
-    <div className="w-1/4 bg-black p-4 overflow-auto">
-        <div className="w-full">
-            <h2 className="text-xl font-bold mb-4 text-white">Customer Reviews</h2>
-
-            <div className="space-y-4">
-                {comments.map((comment) => (
-                    <div key={comment.id} className="rounded-lg p-3 shadow-sm hover:shadow-md transition-shadow bg-black">
-                        <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-2">
-                            <div className="mb-2 sm:mb-0">
-                                <h3 className="text-base font-semibold text-gray-200">{comment.name}</h3>
-                                <div className="flex items-center mt-1">
-                                    {renderStars(comment.rating)}
-                                    <span className="ml-2 text-xs text-gray-400">{comment.rating}</span>
+            {/* Right section - Reviews */}
+            <div className="w-1/4 bg-black p-4 overflow-auto">
+                <h2 className="text-xl font-bold mb-4 text-white">Customer Reviews</h2>
+                <div className="space-y-4">
+                    {game.comments?.map((comment) => (
+                        <div key={comment.id} className="rounded-lg p-3 shadow-sm hover:shadow-md bg-black">
+                            <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-2">
+                                <div>
+                                    <h3 className="text-base font-semibold text-gray-200">{comment.name}</h3>
+                                    <div className="flex items-center mt-1">
+                                        {renderStars(comment.rating)}
+                                        <span className="ml-2 text-xs text-gray-400">{comment.rating}</span>
+                                    </div>
                                 </div>
+                                <div className="text-xs text-gray-500">{comment.date}</div>
                             </div>
-                            <div className="text-xs text-gray-500">{comment.date}</div>
+                            <p className="text-sm text-gray-400 mt-2">{comment.comment}</p>
                         </div>
-
-                        <p className="text-sm text-gray-400 mt-2">{comment.comment}</p>
-                    </div>
-                ))}
-            </div>
-
-            {/* Simple pagination */}
-            <div className="flex justify-center mt-6">
-                <nav className="inline-flex rounded-md shadow">
-                    <a href="#" className="px-2 py-1 rounded-l-md bg-black text-xs font-medium text-gray-400 hover:bg-gray-900">
-                        Previous
-                    </a>
-                    <a href="#" className="px-2 py-1 bg-black text-xs font-medium text-gray-300 hover:bg-gray-900">
-                        1
-                    </a>
-                    <a href="#" className="px-2 py-1 bg-black text-xs font-medium text-gray-300 hover:bg-gray-900">
-                        2
-                    </a>
-                    <a href="#" className="px-2 py-1 bg-black text-xs font-medium text-gray-300 hover:bg-gray-900">
-                        3
-                    </a>
-                    <a href="#" className="px-2 py-1 rounded-r-md bg-black text-xs font-medium text-gray-400 hover:bg-gray-900">
-                        Next
-                    </a>
-                </nav>
+                    ))}
+                </div>
             </div>
         </div>
-    </div>
-</div>
-    )
-}
+    );
+};
+
 export default GamePage;

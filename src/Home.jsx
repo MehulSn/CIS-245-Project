@@ -57,7 +57,7 @@ const HomePage = () => {
       <div className="w-full h-full bg-black p-4 overflow-y-auto">
         <CarouselwithText />
         <h2 className="text-2xl font-semibold text-white p-4">Games</h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 p-4">
+        <div id="new" className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 p-4">
           {games.map((game) => (
             <div key={game.id} className="bg-black rounded-lg shadow-lg cursor-pointer" onClick={() => handleGameClick(game)}>
               <img src={game.pics[0]} alt={game.title} className="w-full h-40 object-cover" />
